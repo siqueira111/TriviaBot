@@ -1,0 +1,115 @@
+const { Pool } = require('pg');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const pool = new Pool({
+    user: process.env.POSTGRES_USER || 'postgres',
+    host: process.env.POSTGRES_HOST || 'postgres_db', // Ensure this uses the correct host
+    database: process.env.POSTGRES_DB || 'ep',
+    password: process.env.POSTGRES_PASSWORD || 'password',
+    port: process.env.POSTGRES_PORT || 5432,
+});
+
+module.exports = {
+    query: (text, params) => pool.query(text, params),
+};
+
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, Events, GatewayIntentBits, MessageFlags, EmbedBuilder } = require('discord.js');
+const cron = require('node-cron');
+const { getLeaderboard } = require('./utils/leaderboard');
+
+// Load environment variables
+dotenv.config();
+
+const { TOKEN, CHANNEL_ID } = process.env;
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+client.commands = new Collection();
+const foldersPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(foldersPath);
+
+for (const folder of commandFolders) {
+	const commandsPath = path.join(foldersPath, folder);
+	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const filePath = path.join(commandsPath, file);
+		const command = require(filePath);
+		if ('data' in command && 'execute' in command) {
+			client.commands.set(command.data.name, command);
+		} else {
+			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+		}
+	}
+}
+
+
+cron.schedule('*/5 * * * *', async () => {
+	const channel = await client.channels.fetch(CHANNEL_ID);
+	if (!channel) return console.error('Channel not found!');
+
+	try {
+		for (let i = 0; i < 4; i++) {
+			const messages = await channel.messages.fetch({ limit: 100 });
+			if (messages.size === 0) break;
+			await channel.bulkDelete(messages);
+		}
+
+		const lb = await getLeaderboard();
+		const leaderboardText = lb
+			.map((entry, index) => 
+				`#${index + 1} <@${entry.userid || 'Unknown'}> - ${entry.won ?? 0} games won`
+			)
+			.join('\n');
+
+		await channel.send({
+			embeds: [new EmbedBuilder()
+				.setTitle('The Eric Parker Easter Trivia Event')
+				.setDescription('For easter this year, we are holding a trivia event! Use the command `/play` to start!')
+				.addFields(
+					{ name: 'Which commands can I use?', value: 'The following commands are available to be used in this channel:\n\n`/play` Start a game of Trivia!\n`/leaderboard` Check the leaderboard!\n`/stats` Check your progress so far!' },
+					{ name: 'What do I get for being #1?', value: 'At the end of the event, you will receive the new **Champion** role! This role remains yours until the next event occurs.' },
+					{ name: 'Leaderboard', value: leaderboardText || 'No data available yet.' }
+				)
+				.setColor('7ad1a1')
+				.setTimestamp()
+			]
+		});
+	} catch (error) {
+		console.error('Error during leaderboard update:', error);
+	}
+});
+
+
+client.once(Events.ClientReady, readyClient => {
+	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+});
+
+
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+	const command = interaction.client.commands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		} else {
+			await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		}
+	}
+});
+
+client.login(TOKEN).catch(error => {
+	console.error('Failed to log in to Discord:', error);
+});

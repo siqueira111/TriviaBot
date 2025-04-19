@@ -1,0 +1,1005 @@
+{
+  "facts": [
+    {
+      "id": 1,
+      "fact": "Easter is the oldest and most important Christian holiday.",
+      "true": 1
+    },
+    {
+      "id": 2,
+      "fact": "The date of Easter changes every year, and is determined by the first full moon after the spring equinox.",
+      "true": 1
+    },
+    {
+      "id": 3,
+      "fact": "The name “Easter” is derived from the Old English word “ēastre,” which was the name of a pagan festival that celebrated the arrival of spring.",
+      "true": 1
+    },
+    {
+      "id": 4,
+      "fact": "The Easter bunny originated in Germany, where it was known as the “Osterhase.”",
+      "true": 1
+    },
+    {
+      "id": 5,
+      "fact": "Easter eggs are often associated with the holiday because they symbolize new life and rebirth.",
+      "true": 1
+    },
+    {
+      "id": 6,
+      "fact": "The custom of decorating eggs dates back to ancient times, and was often associated with pagan fertility rituals.",
+      "true": 1
+    },
+    {
+      "id": 7,
+      "fact": "The largest Easter egg ever made weighed over 15,000 pounds and was over 25 feet tall.",
+      "true": 1
+    },
+    {
+      "id": 8,
+      "fact": "The White House has an annual Easter Egg Roll, which has been held since 1878.",
+      "true": 1
+    },
+    {
+      "id": 9,
+      "fact": "Easter is the second highest candy-selling holiday, after Halloween.",
+      "true": 1
+    },
+    {
+      "id": 10,
+      "fact": "Peeps, the popular marshmallow candy, were first introduced in the 1950s.",
+      "true": 1
+    },
+    {
+      "id": 11,
+      "fact": "The world’s largest chocolate Easter egg was made in Italy in 2011 and weighed over 7,000 pounds.",
+      "true": 1
+    },
+    {
+      "id": 12,
+      "fact": "In Greece, it is traditional to dye Easter eggs red, symbolizing the blood of Christ.",
+      "true": 1
+    },
+    {
+      "id": 13,
+      "fact": "The Easter Lily is a popular flower associated with the holiday, and is said to represent purity and new life.",
+      "true": 1
+    },
+    {
+      "id": 14,
+      "fact": "In Finland, children dress up as witches and go door-to-door in search of treats on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 15,
+      "fact": "In Sweden, it is traditional to light bonfires on Easter Sunday to ward off evil spirits.",
+      "true": 1
+    },
+    {
+      "id": 16,
+      "fact": "The custom of wearing new clothes on Easter Sunday dates back to early Christian times.",
+      "true": 1
+    },
+    {
+      "id": 17,
+      "fact": "The egg hunt is a popular Easter activity, and can be traced back to 18th-century Germany.",
+      "true": 1
+    },
+    {
+      "id": 18,
+      "fact": "In Bermuda, it is traditional to fly kites on Good Friday.",
+      "true": 1
+    },
+    {
+      "id": 19,
+      "fact": "In Poland, it is traditional to create elaborate Easter baskets filled with food, including bread, eggs, and sausage.",
+      "true": 1
+    },
+    {
+      "id": 20,
+      "fact": "The Easter parade is a popular tradition in many cities, including New York City and London.",
+      "true": 1
+    },
+    {
+      "id": 21,
+      "fact": "The Easter basket is a popular gift given on the holiday, often filled with candy, eggs, and other treats.",
+      "true": 1
+    },
+    {
+      "id": 22,
+      "fact": "In some cultures, it is traditional to fast during the week leading up to Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 23,
+      "fact": "In Germany, it is traditional to plant Easter trees, which are decorated with eggs and other decorations.",
+      "true": 1
+    },
+    {
+      "id": 24,
+      "fact": "The Maundy Thursday service, held on the Thursday before Easter, commemorates the Last Supper of Jesus Christ.",
+      "true": 1
+    },
+    {
+      "id": 25,
+      "fact": "In Australia, it is traditional to eat hot cross buns on Good Friday.",
+      "true": 1
+    },
+    {
+      "id": 26,
+      "fact": "The Easter Vigil is a Catholic tradition that takes place on the Saturday before Easter, and involves the lighting of a Paschal candle.",
+      "true": 1
+    },
+    {
+      "id": 27,
+      "fact": "In Italy, it is traditional to hold large processions on Good Friday, with participants carrying statues of Jesus and the Virgin Mary.",
+      "true": 1
+    },
+    {
+      "id": 28,
+      "fact": "The traditional Easter dinner often includes ham, lamb, or other meat, along with side dishes such as potatoes and vegetables.",
+      "true": 1
+    },
+    {
+      "id": 29,
+      "fact": "In Spain, it is traditional to hold a procession known as the “Procession of the Dead Christ” on Good Friday.",
+      "true": 1
+    },
+    {
+      "id": 30,
+      "fact": "Easter is the first holiday of the spring season, and is often associated with new beginnings and fresh starts.",
+      "true": 1
+    },
+    {
+      "id": 31,
+      "fact": "In Mexico, it is traditional to hold a procession known as the “Passion Play,” which reenacts the crucifixion and resurrection of Jesus Christ.",
+      "true": 1
+    },
+    {
+      "id": 32,
+      "fact": "The tradition of the Easter bunny is said to have originated in Germany in the 17th century.",
+      "true": 1
+    },
+    {
+      "id": 33,
+      "fact": "The custom of giving Easter baskets is said to have originated in medieval Europe.",
+      "true": 1
+    },
+    {
+      "id": 34,
+      "fact": "In Scotland, it is traditional to hold a game known as “egg rolling” on Easter Monday, in which children roll hard-boiled eggs down a hill.",
+      "true": 1
+    },
+    {
+      "id": 35,
+      "fact": "The custom of wearing Easter bonnets dates back to the 19th century, when it was fashionable for women to wear elaborate hats to church.",
+      "true": 1
+    },
+    {
+      "id": 36,
+      "fact": "The word “Easter” is not found in the Bible, and is believed to have been derived from a pagan festival celebrating the goddess Eostre.",
+      "true": 1
+    },
+    {
+      "id": 37,
+      "fact": "In parts of Eastern Europe, it is traditional to paint Easter eggs with intricate designs and patterns.",
+      "true": 1
+    },
+    {
+      "id": 38,
+      "fact": "The Easter Vigil is the most important Catholic service of the year, and includes the blessing of the new fire and the lighting of the Paschal candle.",
+      "true": 1
+    },
+    {
+      "id": 39,
+      "fact": "In the Philippines, it is traditional to hold a reenactment of the crucifixion of Jesus Christ on Good Friday.",
+      "true": 1
+    },
+    {
+      "id": 40,
+      "fact": "The custom of giving Easter baskets is said to have originated with the Pennsylvania Dutch in the 18th century.",
+      "true": 1
+    },
+    {
+      "id": 41,
+      "fact": "In Romania, it is traditional to hold a game known as “cucul,” in which children compete to see who can roll a hard-boiled egg the farthest.",
+      "true": 1
+    },
+    {
+      "id": 42,
+      "fact": "The Easter egg hunt is said to have originated in Germany in the 16th century.",
+      "true": 1
+    },
+    {
+      "id": 43,
+      "fact": "The Easter bunny is often depicted as carrying a basket of eggs, which he delivers to children on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 44,
+      "fact": "In the United States, Easter is a popular holiday for gift-giving, with flowers, candy, and other treats often given as gifts.",
+      "true": 1
+    },
+    {
+      "id": 45,
+      "fact": "In Russia, it is traditional to hold a game known as “egg tapping,” in which players tap hard-boiled eggs against each other until one egg cracks.",
+      "true": 1
+    },
+    {
+      "id": 46,
+      "fact": "The Easter bunny is often depicted as wearing clothes and carrying a basket of eggs, but in some cultures he is portrayed as a more naturalistic animal.",
+      "true": 1
+    },
+    {
+      "id": 47,
+      "fact": "The custom of eating hot cross buns on Good Friday dates back to medieval times.",
+      "true": 1
+    },
+    {
+      "id": 48,
+      "fact": "In Finland, it is traditional to burn bonfires on Easter Sunday, which are said to symbolize the end of winter and the beginning of spring.",
+      "true": 1
+    },
+    {
+      "id": 49,
+      "fact": "In Russia, it is traditional to make a type of sweet bread known as “kulich” for Easter.",
+      "true": 1
+    },
+    {
+      "id": 50,
+      "fact": "In Mexico, it is traditional to hold a parade known as the “Easter Walk,” which features floats depicting scenes from the life of Jesus Christ.",
+      "true": 1
+    },
+    {
+      "id": 51,
+      "fact": "In Norway, it is traditional to hold a game known as “paaskeskirenn,” in which children compete in a ski race.",
+      "true": 1
+    },
+    {
+      "id": 52,
+      "fact": "In Brazil, it is traditional to hold a dance known as the “Samba de Roda” on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 53,
+      "fact": "In Germany, it is traditional to hold a game known as “egg dance,” in which participants dance around while balancing eggs on spoons.",
+      "true": 1
+    },
+    {
+      "id": 54,
+      "fact": "In Sweden, it is traditional to hold a game known as “aeggkastning,” in which players try to throw hard-boiled eggs as far as possible.",
+      "true": 1
+    },
+    {
+      "id": 55,
+      "fact": "In Spain, it is traditional to hold a game known as “huevo de Pascua,” in which players try to break eggs over each other’s heads without cracking their own.",
+      "true": 1
+    },
+    {
+      "id": 56,
+      "fact": "In Bulgaria, it is traditional to hold a game known as “horo,” in which participants dance in a circle while holding painted eggs.",
+      "true": 1
+    },
+    {
+      "id": 57,
+      "fact": "In the United States, the Easter Bunny often leaves a trail of footprints leading to the Easter basket.",
+      "true": 1
+    },
+    {
+      "id": 58,
+      "fact": "In some cultures, it is traditional to hold a “smudging” ceremony on Easter, in which participants burn sage to purify their homes.",
+      "true": 1
+    },
+    {
+      "id": 59,
+      "fact": "In the United States, the White House Easter Egg Roll is an annual event that dates back to 1878",
+      "true": 1
+    },
+    {
+      "id": 60,
+      "fact": "In some cultures, it is traditional to hold a sunrise service on Easter Sunday to symbolize the rising of Christ from the dead.",
+      "true": 1
+    },
+    {
+      "id": 61,
+      "fact": "In Greece, it is traditional to hold a feast known as “Magiritsa” on Easter Sunday, which consists of a soup made from lamb offal and lettuce.",
+      "true": 1
+    },
+    {
+      "id": 62,
+      "fact": "In Denmark, it is traditional to hold a game known as “gaekkebrev,” in which participants write a poem on a piece of paper and fold it into an elaborate design to be given to someone as a gift.",
+      "true": 1
+    },
+    {
+      "id": 63,
+      "fact": "In Ethiopia, it is traditional to hold a three-day festival known as “Fasika,” which includes feasting, dancing, and the exchange of gifts.",
+      "true": 1
+    },
+    {
+      "id": 64,
+      "fact": "In some cultures, it is traditional to light a bonfire on Easter Sunday to symbolize the triumph of light over darkness.",
+      "true": 1
+    },
+    {
+      "id": 65,
+      "fact": "In Bermuda, it is traditional to fly kites on Good Friday to symbolize the ascension of Christ into heaven.",
+      "true": 1
+    },
+    {
+      "id": 66,
+      "fact": "In France, it is traditional to hold an Easter omelet competition, in which participants compete to make the largest omelet.",
+      "true": 1
+    },
+    {
+      "id": 67,
+      "fact": "In Mexico, it is traditional to hold a “Piñata de Resurrección” on Easter Sunday, in which a piñata is filled with candy and small toys to be broken open by children.",
+      "true": 1
+    },
+    {
+      "id": 68,
+      "fact": "In Poland, it is traditional to hold a “wet Monday” celebration on Easter Monday, in which people pour water on each other as a symbol of cleansing and renewal.",
+      "true": 1
+    },
+    {
+      "id": 69,
+      "fact": "In Australia, it is traditional to hold a “bunny hunt” on Easter Sunday, in which children search for chocolate Easter bunnies hidden throughout their homes and gardens.",
+      "true": 1
+    },
+    {
+      "id": 70,
+      "fact": "In England, it is traditional to hold an egg-rolling competition on Easter Monday, in which participants roll hard-boiled eggs down a hill.",
+      "true": 1
+    },
+    {
+      "id": 71,
+      "fact": "In Finland, it is traditional to hold a game known as “Munavisi,” in which participants throw eggs at a target.",
+      "true": 1
+    },
+    {
+      "id": 72,
+      "fact": "In France, it is traditional to hold a “chasse aux oeufs,” or Easter egg hunt, in which children search for hidden eggs.",
+      "true": 1
+    },
+    {
+      "id": 73,
+      "fact": "In Germany, it is traditional to hold a “osterfeuer,” or Easter bonfire, on the Saturday before Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 74,
+      "fact": "In Ireland, it is traditional to hold a “cailleach” ceremony on Easter Sunday, in which a straw figure representing winter is burned to symbolize the end of the cold season.",
+      "true": 1
+    },
+    {
+      "id": 75,
+      "fact": "In Italy, it is traditional to hold a “scoppio del carro,” or “explosion of the cart,” on Easter Sunday, in which a cart filled with fireworks is set alight.",
+      "true": 1
+    },
+    {
+      "id": 76,
+      "fact": "In the United States, it is traditional to hold an Easter parade, in which participants dress in elaborate costumes and walk through the streets.",
+      "true": 1
+    },
+    {
+      "id": 77,
+      "fact": "In the Netherlands, it is traditional to hold a “paasvuur,” or Easter fire, on the Saturday before Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 78,
+      "fact": "In Portugal, it is traditional to hold a “folar,” or Easter bread, which is made with hard-boiled eggs and flavored with cinnamon.",
+      "true": 1
+    },
+    {
+      "id": 79,
+      "fact": "In Romania, it is traditional to hold a “pastrama,” or Easter feast, which includes lamb and other traditional foods.",
+      "true": 1
+    },
+    {
+      "id": 80,
+      "fact": "In Russia, it is traditional to hold a “maslenitsa,” or pancake festival, during the week leading up to Easter.",
+      "true": 1
+    },
+    {
+      "id": 81,
+      "fact": "In Scotland, it is traditional to hold a “hot cross bun race,” in which participants race to carry hot cross buns on a tray without dropping them.",
+      "true": 1
+    },
+    {
+      "id": 82,
+      "fact": "In Serbia, it is traditional to hold a “pisanica,” or Easter egg decoration competition, in which participants decorate eggs with intricate designs.",
+      "true": 1
+    },
+    {
+      "id": 83,
+      "fact": "In Spain, it is traditional to hold a “semana santa,” or Holy Week, which includes processions, parades, and other religious events.",
+      "true": 1
+    },
+    {
+      "id": 84,
+      "fact": "In Sweden, it is traditional to hold an Easter buffet, or “paskbord,” which includes a variety of traditional dishes.",
+      "true": 1
+    },
+    {
+      "id": 85,
+      "fact": "In Switzerland, it is traditional to hold an Easter market, in which vendors sell crafts, food, and other items.",
+      "true": 1
+    },
+    {
+      "id": 86,
+      "fact": "In the United States, it is traditional to dye eggs with bright colors and decorate them with stickers or other embellishments.",
+      "true": 1
+    },
+    {
+      "id": 87,
+      "fact": "In Canada, it is traditional to hold an Easter egg hunt, in which children search for hidden eggs.",
+      "true": 1
+    },
+    {
+      "id": 88,
+      "fact": "In many countries, it is traditional to give Easter eggs or other gifts to friends and family.",
+      "true": 1
+    },
+    {
+      "id": 89,
+      "fact": "In some cultures, it is traditional to eat hot cross buns, which are spiced buns with a cross on top.",
+      "true": 1
+    },
+    {
+      "id": 90,
+      "fact": "In many cultures, it is traditional to eat lamb or other meats on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 91,
+      "fact": "In some cultures, it is traditional to give up something for Lent, such as meat, sweets, or alcohol.",
+      "true": 1
+    },
+    {
+      "id": 92,
+      "fact": "In some cultures, it is traditional to attend church services on Good Friday or Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 93,
+      "fact": "In many cultures, it is traditional to wear new clothes on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 94,
+      "fact": "In some cultures, it is traditional to plant seeds or start new projects on Easter Sunday, as a symbol of rebirth and renewal.",
+      "true": 1
+    },
+    {
+      "id": 95,
+      "fact": "In many cultures, it is traditional to sing Easter hymns or songs.",
+      "true": 1
+    },
+    {
+      "id": 96,
+      "fact": "In some cultures, it is traditional to make Easter baskets filled with treats and gifts.",
+      "true": 1
+    },
+    {
+      "id": 97,
+      "fact": "In many cultures, it is traditional to decorate homes and churches with flowers and other springtime decorations.",
+      "true": 1
+    },
+    {
+      "id": 98,
+      "fact": "In some cultures, it is traditional to perform traditional folk dances or other cultural activities on Easter Sunday.",
+      "true": 1
+    },
+    {
+      "id": 99,
+      "fact": "In many cultures, it is traditional to celebrate Easter with family and friends, sharing meals and enjoying each other’s company.",
+      "true": 1
+    },
+    {
+      "id": 100,
+      "fact": "In some cultures, it is traditional to light candles or lanterns on Easter Sunday as a symbol of hope and new beginnings.",
+      "true": 1
+    },
+    {
+      "id": 101,
+      "fact": "In many cultures, it is traditional to give to charity or perform acts of kindness during the Easter season.",
+      "true": 1
+    },
+    {
+      "id": 102,
+      "fact": "In some cultures, it is traditional to paint or draw Easter scenes, such as depictions of the crucifixion or the resurrection.",
+      "true": 1
+    },
+    {
+      "id": 103,
+      "fact": "In many cultures, it is traditional to read or listen to stories about Easter, such as the Passion of Christ or stories about the Easter bunny.",
+      "true": 1
+    },
+    {
+      "id": 104,
+      "fact": "In some cultures, it is traditional to hold community events or festivals during the Easter season, bringing together people from different backgrounds and traditions.",
+      "true": 1
+    },
+    {
+      "id": 105,
+      "fact": "In many cultures, it is traditional to celebrate Easter with fireworks or other forms of entertainment.",
+      "true": 1
+    },
+    {
+      "id": 106,
+      "fact": "In some cultures, it is traditional to create Easter-themed crafts or decorations, such as wreaths or garlands.",
+      "true": 1
+    },
+    {
+      "id": 107,
+      "fact": "In many cultures, it is traditional to share stories or legends about the Easter bunny or other Easter symbols.",
+      "true": 1
+    },
+    {
+      "id": 108,
+      "fact": "In some cultures, it is traditional to hold a feast or banquet on Easter Sunday, featuring a variety of dishes and desserts.",
+      "true": 1
+    },
+    {
+      "id": 109,
+      "fact": "In many cultures, it is traditional to exchange gifts or tokens of appreciation during the Easter season.",
+      "true": 1
+    },
+    {
+      "id": 110,
+      "fact": "In some cultures, it is traditional to perform acts of service or volunteer work during the Easter season.",
+      "true": 1
+    },
+    {
+      "id": 111,
+      "fact": "Easter is for bunnies",
+      "true": 0
+    },
+    {
+      "id": 112,
+      "fact": "The first ever computer got released on easter",
+      "true": 0
+    },
+    {
+      "id": 113,
+      "fact": "Easter is the most important holiday in the world",
+      "true": 0
+    },
+    {
+      "id": 114,
+      "fact": "Easter is celebrated on the same day every year",
+      "true": 0
+    },
+    {
+      "id": 115,
+      "fact": "Easter is a holiday that celebrates the birth of Jesus Christ",
+      "true": 0
+    },
+    {
+      "id": 116,
+      "fact": "Easter is a holiday that celebrates the arrival of spring",
+      "true": 0
+    },
+    {
+      "id": 117,
+      "fact": "Easter is a holiday that celebrates the end of winter",
+      "true": 0
+    },
+    {
+      "id": 118,
+      "fact": "Easter is a holiday that celebrates the beginning of summer",
+      "true": 0
+    },
+    {
+      "id": 119,
+      "fact": "Easter is a holiday that celebrates the harvest season",
+      "true": 0
+    },
+    {
+      "id": 120,
+      "fact": "Eric Parker is the best",
+      "true": 1
+    },
+    {
+      "id": 121,
+      "fact": "In the netherlands they eat bunny cheese.",
+      "true": 0
+    },
+    {
+      "id": 122,
+      "fact": "Easter is a holiday that celebrates the end of the school year",
+      "true": 0
+    },
+    {
+      "id": 123,
+      "fact": "Easter is a holiday that celebrates the beginning of the school year",
+      "true": 0
+    },
+    {
+      "id": 124,
+      "fact": "Easter is a holiday that celebrates the end of the work week",
+      "true": 0
+    },
+    {
+      "id": 125,
+      "fact": "Easter is a holiday that celebrates the beginning of the work week",
+      "true": 0
+    },
+    {
+      "id": 126,
+      "fact": "Easter is a holiday that celebrates the end of the month",
+      "true": 0
+    },
+    {
+      "id": 127,
+      "fact": "Easter is a holiday that celebrates the beginning of the month",
+      "true": 0
+    },
+    {
+      "id": 128,
+      "fact": "Easter is a holiday that celebrates the end of the year",
+      "true": 0
+    },
+    {
+      "id": 129,
+      "fact": "Easter is a holiday that celebrates the beginning of the year",
+      "true": 0
+    },
+    {
+      "id": 130,
+      "fact": "Easter is a holiday that celebrates the end of the decade",
+      "true": 0
+    },
+    {
+      "id": 131,
+      "fact": "Easter is a holiday that celebrates the beginning of the decade",
+      "true": 0
+    },
+    {
+      "id": 132,
+      "fact": "Eric Parker made his **DISCORD** account in 2020",
+      "true": 0
+    },
+    {
+      "id": 133,
+      "fact": "This server was made in 2023",
+      "true": 0
+    },
+    {
+      "id": 134,
+      "fact": "The cat ate the eagle(server lore)",
+      "true": 0
+    },
+    {
+      "id": 135,
+      "fact": "Easter is celebrated on the same day as Christmas.",
+      "true": 0
+    },
+    {
+      "id": 136,
+      "fact": "The Easter Bunny is a species of rabbit found only in Antarctica.",
+      "true": 0
+    },
+    {
+      "id": 137,
+      "fact": "Easter eggs were originally made of gold.",
+      "true": 0
+    },
+    {
+      "id": 138,
+      "fact": "The Easter Bunny was invented by Albert Einstein.",
+      "true": 0
+    },
+    {
+      "id": 139,
+      "fact": "Easter is a holiday that celebrates the invention of chocolate.",
+      "true": 0
+    },
+    {
+      "id": 140,
+      "fact": "Easter was first celebrated on the moon.",
+      "true": 0
+    },
+    {
+      "id": 141,
+      "fact": "The Easter Bunny delivers presents to children, just like Santa Claus.",
+      "true": 0
+    },
+    {
+      "id": 142,
+      "fact": "Easter eggs were originally filled with diamonds.",
+      "true": 0
+    },
+    {
+      "id": 143,
+      "fact": "Easter is a holiday that celebrates the invention of the wheel.",
+      "true": 0
+    },
+    {
+      "id": 144,
+      "fact": "The Easter Bunny is a mythical creature that can fly.",
+      "true": 0
+    },
+    {
+      "id": 145,
+      "fact": "Easter was originally celebrated by building snowmen.",
+      "true": 0
+    },
+    {
+      "id": 146,
+      "fact": "Easter eggs were first made by dinosaurs.",
+      "true": 0
+    },
+    {
+      "id": 147,
+      "fact": "The Easter Bunny is a character from Greek mythology.",
+      "true": 0
+    },
+    {
+      "id": 148,
+      "fact": "Easter is a holiday that celebrates the invention of electricity.",
+      "true": 0
+    },
+    {
+      "id": 149,
+      "fact": "Easter was first celebrated in outer space.",
+      "true": 0
+    },
+    {
+      "id": 150,
+      "fact": "The Easter Bunny is a robot created in the 1800s.",
+      "true": 0
+    },
+    {
+      "id": 151,
+      "fact": "Easter eggs were originally made of glass.",
+      "true": 0
+    },
+    {
+      "id": 152,
+      "fact": "Easter is a holiday that celebrates the invention of the internet.",
+      "true": 0
+    },
+    {
+      "id": 153,
+      "fact": "The Easter Bunny is a superhero who fights crime.",
+      "true": 0
+    },
+    {
+      "id": 154,
+      "fact": "Easter eggs were first painted by Leonardo da Vinci.",
+      "true": 0
+    },
+    {
+      "id": 155,
+      "fact": "Easter is a holiday that celebrates the invention of the telephone.",
+      "true": 0
+    },
+    {
+      "id": 156,
+      "fact": "The Easter Bunny is a character from Shakespeare's plays.",
+      "true": 0
+    },
+    {
+      "id": 157,
+      "fact": "Easter eggs were originally made of ice.",
+      "true": 0
+    },
+    {
+      "id": 158,
+      "fact": "Easter is a holiday that celebrates the invention of airplanes.",
+      "true": 0
+    },
+    {
+      "id": 159,
+      "fact": "The Easter Bunny is a time traveler.",
+      "true": 0
+    },
+    {
+      "id": 160,
+      "fact": "Easter eggs were first discovered in the Amazon rainforest.",
+      "true": 0
+    },
+    {
+      "id": 161,
+      "fact": "Easter is a holiday that celebrates the invention of the light bulb.",
+      "true": 0
+    },
+    {
+      "id": 162,
+      "fact": "The Easter Bunny is a character from a science fiction novel.",
+      "true": 0
+    },
+    {
+      "id": 163,
+      "fact": "Easter eggs were originally made of rubber.",
+      "true": 0
+    },
+    {
+      "id": 164,
+      "fact": "Easter is a holiday that celebrates the invention of television.",
+      "true": 0
+    },
+    {
+      "id": 165,
+      "fact": "The Easter Bunny is a magician who can make eggs disappear.",
+      "true": 0
+    },
+    {
+      "id": 166,
+      "fact": "Easter eggs were first created by aliens.",
+      "true": 0
+    },
+    {
+      "id": 167,
+      "fact": "Easter is a holiday that celebrates the invention of cars.",
+      "true": 0
+    },
+    {
+      "id": 168,
+      "fact": "The Easter Bunny is a character from a horror movie.",
+      "true": 0
+    },
+    {
+      "id": 169,
+      "fact": "Easter eggs were originally made of paper.",
+      "true": 0
+    },
+    {
+      "id": 170,
+      "fact": "Easter is a holiday that celebrates the invention of computers.",
+      "true": 0
+    },
+    {
+      "id": 171,
+      "fact": "The Easter Bunny is a famous chef who invented chocolate eggs.",
+      "true": 0
+    },
+    {
+      "id": 172,
+      "fact": "Easter eggs were first used as currency.",
+      "true": 0
+    },
+    {
+      "id": 173,
+      "fact": "Easter is a holiday that celebrates the invention of the printing press.",
+      "true": 0
+    },
+    {
+      "id": 174,
+      "fact": "The Easter Bunny is a character from a video game.",
+      "true": 0
+    },
+    {
+      "id": 175,
+      "fact": "Easter eggs were originally made of clay.",
+      "true": 0
+    },
+    {
+      "id": 176,
+      "fact": "Easter is a holiday that celebrates the invention of photography.",
+      "true": 0
+    },
+    {
+      "id": 177,
+      "fact": "The Easter Bunny is a famous artist who paints eggs.",
+      "true": 0
+    },
+    {
+      "id": 178,
+      "fact": "Easter eggs were first used as musical instruments.",
+      "true": 0
+    },
+    {
+      "id": 179,
+      "fact": "Easter is a holiday that celebrates the invention of the steam engine.",
+      "true": 0
+    },
+    {
+      "id": 180,
+      "fact": "The Easter Bunny is a character from a fairy tale.",
+      "true": 0
+    },
+    {
+      "id": 181,
+      "fact": "Easter eggs were originally made of chocolate by accident.",
+      "true": 0
+    },
+    {
+      "id": 182,
+      "fact": "Easter is a holiday that celebrates the invention of the calendar.",
+      "true": 0
+    },
+    {
+      "id": 183,
+      "fact": "The Easter Bunny is a famous explorer who discovered Easter Island.",
+      "true": 0
+    },
+    {
+      "id": 184,
+      "fact": "Easter eggs were first used in ancient Olympic games.",
+      "true": 0
+    },
+    {
+      "id": 185,
+      "fact": "Easter is a holiday that celebrates the invention of the compass.",
+      "true": 0
+    },
+    {
+      "id": 186,
+      "fact": "The Easter Bunny is a character from a comic book series.",
+      "true": 0
+    },
+    {
+      "id": 187,
+      "fact": "Easter eggs were originally made of soap.",
+      "true": 0
+    },
+    {
+      "id": 188,
+      "fact": "Easter is a holiday that celebrates the invention of the typewriter.",
+      "true": 0
+    },
+    {
+      "id": 189,
+      "fact": "The Easter Bunny is a famous musician who plays the egg flute.",
+      "true": 0
+    },
+    {
+      "id": 190,
+      "fact": "Easter eggs were first used as decorations for castles.",
+      "true": 0
+    },
+    {
+      "id": 191,
+      "fact": "Easter is a holiday that celebrates the invention of the radio.",
+      "true": 0
+    },
+    {
+      "id": 192,
+      "fact": "The Easter Bunny is a famous scientist who studies eggs.",
+      "true": 0
+    },
+    {
+      "id": 193,
+      "fact": "Easter eggs were originally made of feathers.",
+      "true": 0
+    },
+    {
+      "id": 194,
+      "fact": "Easter is a holiday that celebrates the invention of the microscope.",
+      "true": 0
+    },
+    {
+      "id": 195,
+      "fact": "The Easter Bunny is a famous athlete who competes in egg races.",
+      "true": 0
+    },
+    {
+      "id": 196,
+      "fact": "Easter eggs were first used as prizes in medieval tournaments.",
+      "true": 0
+    },
+    {
+      "id": 197,
+      "fact": "Easter is a holiday that celebrates the invention of the telescope.",
+      "true": 0
+    },
+    {
+      "id": 198,
+      "fact": "The Easter Bunny is a famous inventor who created the first chocolate egg.",
+      "true": 0
+    },
+    {
+      "id": 199,
+      "fact": "Easter eggs were originally made of sugar and salt.",
+      "true": 0
+    },
+    {
+      "id": 200,
+      "fact": "Easter is a holiday that celebrates the invention of the sewing machine.",
+      "true": 0
+    }
+  ]
+}
+

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS users (
+    userid TEXT PRIMARY KEY,
+    won INT DEFAULT 0,
+    lost INT DEFAULT 0
+);

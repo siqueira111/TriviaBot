@@ -1,0 +1,273 @@
+{
+    "multiple": [
+        {
+            "question": "What is Azrael?",
+            "options": ["Global Administrator", "Member", "Owner", "A random user"],
+            "answer": 0
+        },
+        {
+            "question": "When is easter celebrated this year?",
+            "options": ["March 31st", "April 20th", "April 17th", "April 30th"],
+            "answer": 1
+        },
+        {
+            "question": "What is the capital of France?",
+            "options": ["Berlin", "Madrid", "Paris", "Rome"],
+            "answer": 2
+        },
+        {
+            "question": "What is the largest planet in our solar system?",
+            "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+            "answer": 2
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "options": ["Au", "Ag", "Pb", "Fe"],
+            "answer": 0
+        },
+        {
+            "question": "What is the speed of light?",
+            "options": ["300,000 km/s", "150,000 km/s", "1,000,000 km/s", "500,000 km/s"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest mammal in the world?",
+            "options": ["Elephant", "Blue Whale", "Giraffe", "Great White Shark"],
+            "answer": 1
+        },
+        {
+            "question": "What is the capital of Japan?",
+            "options": ["Tokyo", "Seoul", "Beijing", "Bangkok"],
+            "answer": 0
+        },
+        {
+            "question": "What is the smallest country in the world?",
+            "options": ["Vatican City", "Monaco", "San Marino", "Liechtenstein"],
+            "answer": 0
+        },
+        {
+            "question": "What is the main ingredient in guacamole?",
+            "options": ["Tomato", "Avocado", "Onion", "Pepper"],
+            "answer": 1
+        },
+        {
+            "question": "What is the largest desert in the world?",
+            "options": ["Sahara", "Arabian", "Gobi", "Kalahari"],
+            "answer": 0
+        },
+        {
+            "question": "What is the hardest natural substance on Earth?",
+            "options": ["Diamond", "Gold", "Iron", "Platinum"],
+            "answer": 0
+        },
+        {
+            "question": "What is the boiling point of water?",
+            "options": ["100°C", "90°C", "80°C", "70°C"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest ocean on Earth?",
+            "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+            "answer": 3
+        },
+        {
+            "question": "What is the main language spoken in Brazil?",
+            "options": ["Spanish", "Portuguese", "English", "French"],
+            "answer": 1
+        },
+        {
+            "question": "What is the capital of Italy?",
+            "options": ["Rome", "Venice", "Florence", "Milan"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest continent on Earth?",
+            "options": ["Africa", "Asia", "North America", "South America"],
+            "answer": 1
+        },
+        {
+            "question": "What is the main ingredient in sushi?",
+            "options": ["Rice", "Fish", "Seaweed", "Vegetables"],
+            "answer": 0
+        },
+        {
+            "question": "What is the capital of Canada?",
+            "options": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+            "answer": 2
+        },
+        {
+            "question": "What is the largest animal on land?",
+            "options": ["Elephant", "Giraffe", "Hippopotamus", "Rhinoceros"],
+            "answer": 0
+        },
+        {
+            "question": "What is the main ingredient in hummus?",
+            "options": ["Chickpeas", "Lentils", "Beans", "Peas"],
+            "answer": 0
+        },
+        {
+            "question": "What is the capital of Australia?",
+            "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+            "answer": 2
+        },
+        {
+            "question": "What is the largest volcano in the world?",
+            "options": ["Kilimanjaro", "Mauna Loa", "Mount St. Helens", "Mount Fuji"],
+            "answer": 1
+        },
+        {
+            "question": "What is the main ingredient in pesto?",
+            "options": ["Basil", "Parsley", "Cilantro", "Mint"],
+            "answer": 0
+        },
+        {
+            "question": "What is the capital of Egypt?",
+            "options": ["Cairo", "Alexandria", "Giza", "Luxor"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest city in the world by population?",
+            "options": ["Tokyo", "Delhi", "Shanghai", "Sao Paulo"],
+            "answer": 0
+        },
+        {
+            "question": "What is the main ingredient in a Caesar salad?",
+            "options": ["Lettuce", "Croutons", "Caesar dressing", "Parmesan cheese"],
+            "answer": 2
+        },
+        {
+            "question": "What is the capital of Spain?",
+            "options": ["Madrid", "Barcelona", "Seville", "Valencia"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest island in the world?",
+            "options": ["Greenland", "New Guinea", "Borneo", "Madagascar"],
+            "answer": 0
+        },
+        {
+            "question": "What is the main ingredient in a margarita?",
+            "options": ["Tequila", "Vodka", "Rum", "Whiskey"],
+            "answer": 0
+        },
+        {
+            "question": "What is the capital of Germany?",
+            "options": ["Berlin", "Munich", "Frankfurt", "Hamburg"],
+            "answer": 0
+        },
+        {
+            "question": "What is the largest lake in the world?",
+            "options": ["Caspian Sea", "Lake Superior", "Lake Victoria", "Lake Baikal"],
+            "answer": 0
+        },
+        {
+            "question": "What is the main ingredient in a moussaka?",
+            "options": ["Eggplant", "Potato", "Zucchini", "Tomato"],
+            "answer": 0
+        },
+        {
+            "question": "What is the significance of Easter in Christianity?",
+            "options": ["The birth of Jesus", "The resurrection of Jesus", "The last supper", "The crucifixion of Jesus"],
+            "answer": 1
+        },
+        {
+            "question": "What is the traditional Easter flower?",
+            "options": ["Rose", "Lily", "Tulip", "Daffodil"],
+            "answer": 1
+        },
+        {
+            "question": "What is the name of the Sunday before Easter?",
+            "options": ["Palm Sunday", "Good Friday", "Holy Saturday", "Maundy Thursday"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the meal Jesus shared with his disciples before his crucifixion?",
+            "options": ["The Last Supper", "The Passover Meal", "The Holy Feast", "The Easter Banquet"],
+            "answer": 0
+        },
+        {
+            "question": "What is the traditional Easter candy shaped like a bird?",
+            "options": ["Chocolate Bunny", "Peeps", "Jelly Beans", "Marshmallow Eggs"],
+            "answer": 1
+        },
+        {
+            "question": "What is the name of the Jewish holiday that often coincides with Easter?",
+            "options": ["Hanukkah", "Passover", "Yom Kippur", "Rosh Hashanah"],
+            "answer": 1
+        },
+        {
+            "question": "What is the name of the week leading up to Easter?",
+            "options": ["Holy Week", "Easter Week", "Passion Week", "Resurrection Week"],
+            "answer": 0
+        },
+        {
+            "question": "What is the traditional Easter bread in Italy called?",
+            "options": ["Panettone", "Colomba", "Focaccia", "Ciabatta"],
+            "answer": 1
+        },
+        {
+            "question": "What is the name of the day Jesus was crucified?",
+            "options": ["Good Friday", "Holy Saturday", "Palm Sunday", "Easter Sunday"],
+            "answer": 0
+        },
+        {
+            "question": "What is the traditional activity involving eggs during Easter?",
+            "options": ["Egg Rolling", "Egg Tossing", "Egg Painting", "Egg Hunting"],
+            "answer": 3
+        },
+        {
+            "question": "What is the name of the Easter Bunny in German folklore?",
+            "options": ["Osterhase", "Hasenpfeffer", "Hasenbraten", "Osterkaninchen"],
+            "answer": 0
+        },
+        {
+            "question": "What is the traditional Easter greeting in Christianity?",
+            "options": ["He is Risen!", "Happy Easter!", "Blessed Easter!", "Christ is Born!"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the Easter vigil held on the night before Easter?",
+            "options": ["Holy Vigil", "Easter Vigil", "Resurrection Vigil", "Passion Vigil"],
+            "answer": 1
+        },
+        {
+            "question": "What is the traditional Easter meat in many cultures?",
+            "options": ["Turkey", "Ham", "Lamb", "Beef"],
+            "answer": 2
+        },
+        {
+            "question": "What is the name of the cake traditionally eaten in the UK during Easter?",
+            "options": ["Simnel Cake", "Victoria Sponge", "Fruit Cake", "Easter Cake"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the day that marks the end of Lent?",
+            "options": ["Easter Sunday", "Good Friday", "Holy Saturday", "Palm Sunday"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the Roman governor who sentenced Jesus to death?",
+            "options": ["Pontius Pilate", "Herod", "Caesar Augustus", "Nero"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the hill where Jesus was crucified?",
+            "options": ["Golgotha", "Mount Sinai", "Mount Zion", "Mount Carmel"],
+            "answer": 0
+        },
+        {
+            "question": "What is the name of the disciple who betrayed Jesus?",
+            "options": ["Peter", "Judas", "John", "Thomas"],
+            "answer": 1
+        },
+        {
+            "question": "What is the name of the cloth that covered Jesus' body in the tomb?",
+            "options": ["Shroud of Turin", "Holy Veil", "Sacred Cloth", "Resurrection Shroud"],
+            "answer": 0
+        },{
+            "question": "Who made this bot?",
+            "options": ["Azrael", "Loafc", "Eric Parker", "Jak"],
+            "answer": 1
+        }
+    ]
+}
