@@ -1,13 +1,17 @@
 FROM node:23-slim
 
+# command: sh -c "npm run dev"
+
 RUN npm install -g npm@latest
 
 WORKDIR /app
 
+COPY app/package*.json app/tsconfig.json ./
 
-COPY package*.json ./
 RUN npm install
 
-COPY . .
+RUN npm install --save-dev typescript ts-node @types/node
 
-CMD ["npm", "run", "dev"]
+COPY app/ .
+
+CMD ["npx", "ts-node", "app/index.ts"]

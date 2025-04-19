@@ -15,15 +15,14 @@ services:
       timeout: 5s
 
   ep_trivia_bot:
-    build:
-      dockerfile: ./.docker/Node/Dockerfile
-      context: .
     container_name: EPTriviaBot
+    build:
+      context: .
+      dockerfile: ./.docker/Node/Dockerfile
     depends_on:
       - mariadb_db
     env_file:
-      - .env
-    command: sh -c "npm run dev"
+      - ./app/.env
 
 volumes:
   mariadb_data:
