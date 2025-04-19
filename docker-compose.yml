@@ -4,6 +4,8 @@ services:
   mariadb_db:
     image: mariadb:latest
     container_name: mariadb_db
+    env_file:
+      - ./app/.env
     ports:
       - "5434:3306"
     volumes:
@@ -23,6 +25,8 @@ services:
       - mariadb_db
     env_file:
       - ./app/.env
-
+    volumes:
+      - ./app:/app
+      
 volumes:
   mariadb_data:
