@@ -25,6 +25,8 @@ const { getLeaderboard } = require('./utils/leaderboard');
 dotenv.config();
 
 const { TOKEN, CHANNEL_ID } = process.env;
+const commands = [];
+
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
