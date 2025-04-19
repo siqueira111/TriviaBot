@@ -24,7 +24,7 @@ const { getLeaderboard } = require('./utils/leaderboard');
 // Load environment variables
 dotenv.config();
 
-const { TOKEN, CHANNEL_ID } = process.env;
+const { TOKEN, CHANNEL_ID, CLIENT_ID } = process.env;
 const commands = [];
 
 
