@@ -1,17 +1,17 @@
 {
   "name": "epeventdemo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "node index.ts",
     "db:deploy": "npx prisma migrate deploy &&  npx prisma generate --binary-targets=linux-musl-openssl-3.0.x",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.ts"
   },
   "author": "loafc",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "discord.js": "^14.18.0",
+    "discord.ts": "^14.18.0",
     "dotenv": "^16.5.0",
     "node-cron": "^3.0.3",
     "pg": "^8.11.0"

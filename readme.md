@@ -1,5 +1,11 @@
-#setup
-firstly, fill in everything in .env.example, then, rename it to .env
-after that is done, run `docker-compose up -d`.
-#problems
-if you have any problems, feel free to dm loafc!
+# setup
+To begin with, rename `.env.example` to `.env`, change the necessary settings
+
+after that is done run:
+
+```bash
+docker-compose build && docker-compose up -d
+```
+
+# problems
+you'll not have any problems _winky winky_

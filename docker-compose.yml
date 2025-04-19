@@ -19,10 +19,10 @@ services:
       timeout: 5s
       retries: 5
 
-  bot:
+  EPTriviaBot:
     build:
       context: .
-    container_name: bot
+    container_name: EPTriviaBot
     depends_on:
       postgres_db:
         condition: service_healthy
