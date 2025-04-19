@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
-  postgres_db:
-    image: postgres:latest
+  db:
+    build: .
     container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
@@ -12,20 +14,17 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    command: bash -c "rm -rf /var/lib/postgresql/data/* && docker-entrypoint.sh postgres"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
-
+      
   EPTriviaBot:
     build:
       context: .
     container_name: EPTriviaBot
-    depends_on:
-      postgres_db:
-        condition: service_healthy
+    depends_on: postgres_db
     env_file:
       - .env
     environment:
@@ -34,3 +33,7 @@ services:
 
 volumes:
   postgres_data:
+
+
+
+
