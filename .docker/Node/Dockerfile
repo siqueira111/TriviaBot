@@ -14,4 +14,4 @@ RUN npm install --save-dev typescript ts-node @types/node
 
 COPY app/ .
 
-CMD ["npx", "ts-node", "app/index.ts"]
+CMD ["npx", "ts-node", "index.ts"]
