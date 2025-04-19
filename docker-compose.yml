@@ -1,43 +1,29 @@
 version: '3.8'
 
 services:
-  postgres_db:
-    build:
-      dockerfile: ./.docker/Postgre/Dockerfile
-      context: .
-    container_name: postgres_db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: J8H7g8h
-      POSTGRES_DB: ep
-      PGPORT: 5434
+  mariadb_db:
+    image: mariadb:latest
+    container_name: mariadb_db
     ports:
-      - "5434:5434"
+      - "5434:3306"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - mariadb_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
-      timeout: 5s
       retries: 5
-      
+      timeout: 5s
+
   ep_trivia_bot:
     build:
       dockerfile: ./.docker/Node/Dockerfile
       context: .
     container_name: EPTriviaBot
     depends_on:
-      - postgres_db
+      - mariadb_db
     env_file:
       - .env
-    environment:
-      POSTGRES_HOST: postgres_db
     command: sh -c "npm run dev"
 
 volumes:
-  postgres_data:
-
-
-
-
+  mariadb_data:
