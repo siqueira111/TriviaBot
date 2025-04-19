@@ -9,6 +9,9 @@ module.exports = {
 		.setName('play')
 		.setDescription('play game'),
 	async execute(interaction) {
+        try {
+
+        
         let gameFacts = [...facts.facts];
         let gameMultipleChoice = [...multipleChoice.multiple];
         let questionCounter = 0;
@@ -136,5 +139,10 @@ module.exports = {
 
         await interaction.reply({ content: 'Starting the game...', flags: [ MessageFlags.Ephemeral]});
         await askQuestion(); 
+
+    } catch (error) {
+        console.error(error)
+    }
 	},
+
 };

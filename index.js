@@ -74,43 +74,6 @@ const rest = new REST().setToken(TOKEN);
 	}
 })();
 
-cron.schedule('*/5 * * * *', async () => {
-	const channel = await client.channels.fetch(CHANNEL_ID);
-	if (!channel) return console.error('Channel not found!');
-
-	try {
-		for (let i = 0; i < 4; i++) {
-			const messages = await channel.messages.fetch({ limit: 100 });
-			if (messages.size === 0) break;
-			await channel.bulkDelete(messages);
-		}
-
-		const lb = await getLeaderboard();
-		const leaderboardText = lb
-			.map((entry, index) => 
-				`#${index + 1} <@${entry.userid || 'Unknown'}> - ${entry.won ?? 0} games won`
-			)
-			.join('\n');
-
-		await channel.send({
-			embeds: [new EmbedBuilder()
-				.setTitle('The Eric Parker Easter Trivia Event')
-				.setDescription('For easter this year, we are holding a trivia event! Use the command `/play` to start!')
-				.addFields(
-					{ name: 'Which commands can I use?', value: 'The following commands are available to be used in this channel:\n\n`/play` Start a game of Trivia!\n`/leaderboard` Check the leaderboard!\n`/stats` Check your progress so far!' },
-					{ name: 'What do I get for being #1?', value: 'At the end of the event, you will receive the new **Champion** role! This role remains yours until the next event occurs.' },
-					{ name: 'Leaderboard', value: leaderboardText || 'No data available yet.' }
-				)
-				.setColor('7ad1a1')
-				.setTimestamp()
-			]
-		});
-	} catch (error) {
-		console.error('Error during leaderboard update:', error);
-	}
-});
-
-
 client.once(Events.ClientReady, readyClient => {
 	
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
