@@ -1,8 +1,5 @@
-const { REST, Routes } = require('discord.js');
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
-const fs = require('node:fs');
-const path = require('node:path');
 
 dotenv.config();
 
@@ -20,7 +17,7 @@ module.exports = {
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits, MessageFlags, EmbedBuilder } = require('discord.js');
+const { Client, REST, Routes, Collection, Events, GatewayIntentBits, MessageFlags, EmbedBuilder } = require('discord.js');
 const cron = require('node-cron');
 const { getLeaderboard } = require('./utils/leaderboard');
 
