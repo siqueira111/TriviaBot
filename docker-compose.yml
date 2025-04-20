@@ -1,7 +1,9 @@
 services:
   mariadb_db:
-    image: mariadb:latest
     container_name: mariadb_db
+    build:
+      context: .
+      dockerfile: .docker/Mariadb/Dockerfile
     env_file:
       - ./app/.env
     ports:
@@ -27,7 +29,7 @@ services:
     container_name: EPTriviaBot
     build:
       context: .
-      dockerfile: ./.docker/Node/Dockerfile
+      dockerfile: .docker/Node/Dockerfile
     depends_on:
       - mariadb_db
     env_file:

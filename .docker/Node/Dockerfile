@@ -6,10 +6,8 @@ RUN npm install -g npm@latest
 
 WORKDIR /app
 
-COPY app/package*.json app/tsconfig.json ./
+COPY app/ ./
 
 RUN npm install
-
-COPY app/ ./
 
 CMD ["npx", "nodemon", "--watch", ".", "--exec", "npx", "ts-node", "index.ts"]
