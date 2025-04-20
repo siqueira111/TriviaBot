@@ -1,13 +1,14 @@
-import { Client } from "discord.js";
-import { commandInterface } from "../../types/types";
+import type { Client } from "discord.js";
+import type { commandInterface } from "@/types/types";
 
 interface clientInterface {
-  object: Promise<Client>
-  token: string,
-  clientId: string,
-};
+	object: Promise<Client>;
+	token: string;
+	clientId: string;
+}
 
 export interface registerInterface {
-  client: clientInterface;
-  command: commandInterface;
+	client: clientInterface;
+	command?: commandInterface;
+	commands?: commandInterface[];
 }

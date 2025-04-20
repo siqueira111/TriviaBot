@@ -2,6 +2,9 @@ import { connectDiscord } from "./actions/connectDiscord/connectDiscord";
 import { registerSlashCommand } from "./actions/registerSlashCommand/registerSlashCommand";
 import { connectTypeORM } from "./actions/connectTypeORM/TypeORM";
 import ping from "./commands/(player)/ping/ping";
+import leaderboard from "./commands/(player)/leaderboard/leaderboard";
+import stats from "./commands/(player)/stats/stats";
+import play from "./commands/(player)/play/play";
 
 const db_host = process.env.DB_HOST as string;
 const db_port = Number.parseInt(process.env.DB_PORT as string);
@@ -30,7 +33,7 @@ async function initialize() {
 
 	await registerSlashCommand({
 		client: { token: ds_token, clientId: ds_client, object: ds_conn },
-		command: ping,
+		commands: [ping, play, leaderboard, stats],
 	});
 }
 
