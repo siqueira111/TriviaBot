@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mariadb_db:
@@ -11,10 +11,22 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "127.0.0.1",
+          "-u",
+          "root",
+          "-p$MARIADB_ROOT_PASSWORD",
+        ]
       interval: 10s
       retries: 5
       timeout: 5s
+    networks:
+      - app_network
 
   ep_trivia_bot:
     container_name: EPTriviaBot
@@ -27,6 +39,12 @@ services:
       - ./app/.env
     volumes:
       - ./app:/app
-      
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
 volumes:
   mariadb_data:

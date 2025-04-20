@@ -1,10 +1,9 @@
-# Use official MariaDB image as base
 FROM mariadb:latest
 
-ENV MYSQL_ROOT_PASSWORD=root_password
-ENV MYSQL_DATABASE=ep
-ENV MYSQL_USER=your_user
-ENV MYSQL_PASSWORD=your_password
+ENV MARIADB_ROOT_PASSWORD=root_pass
+ENV MARIADB_DATABASE=ep
+ENV MARIADB_USER=flamma
+ENV MARIADB_PASSWORD=flamma_pass
 
 COPY ./init.sql /docker-entrypoint-initdb.d/
 

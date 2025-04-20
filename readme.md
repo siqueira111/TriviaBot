@@ -5,6 +5,7 @@ This project is a **Trivia Bot** designed for use on Eric Parker's [Discord serv
 
 # Dependencies
 This project depends on:
+* [docker](https://www.docker.com/)
 * [discord.js](https://discord.js.org/)
 * [dotenv](https://github.com/motdotla/dotenv)
 * [mysql2](https://github.com/sidorares/node-mysql2)
@@ -17,6 +18,7 @@ This project depends on:
 {
   "discord.js": "^14.18.0",
   "dotenv": "^16.5.0",
+  "mariadb": "^3.4.1",
   "mysql2": "^3.0.0",
   "node-cron": "^3.0.3"
 }
@@ -31,6 +33,7 @@ This project depends on:
 after that is done run:
 
 ```bash
+npm install
 docker-compose build && docker-compose up -d
 ```
 

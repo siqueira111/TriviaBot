@@ -10,12 +10,10 @@ COPY app/package*.json app/tsconfig.json ./
 
 RUN npm install
 
-#RUN npm install --save-dev typescript ts-node@latest @types/node
-RUN npm install --save-dev typescript nodemon @types/node
+RUN npm install --save-dev typescript nodemon @types/node ts-node
 
 COPY app/ ./
 
 EXPOSE 3000
 
-# CMD ["npx", "ts-node", "index.ts"]
-CMD ["npx", "nodemon", "--watch", ".", "--exec", "npx ts-node", "index.ts"]
+CMD ["npx", "nodemon", "--watch", ".", "--exec", "ts-node", "index.ts"]
