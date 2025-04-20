@@ -4,8 +4,12 @@
     "types": ["node"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "baseUrl": "./",
     "outDir": "./dist",
     "strict": true,
+    "paths": {
+      "@/*": ["./*"]
+    },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
