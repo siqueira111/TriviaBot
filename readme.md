@@ -8,8 +8,9 @@ This project is a **Trivia Bot** designed for use on Eric Parker's [Discord serv
 
 This project depends on:
 
-* [docker](https://www.docker.com/)
-* [discord.js](https://discord.js.org/)
+- [docker](https://www.docker.com/)
+- [discord.js](https://discord.js.org/)
+- [TypeORM](https://typeorm.io/)
 
 <br>
 
@@ -18,7 +19,9 @@ This project depends on:
 ```json
 {
   "discord.js": "^14.18.0",
-  "mariadb": "^3.4.1",
+  "mysql2": "^3.14.0",
+  "reflect-metadata": "^0.2.2",
+  "typeorm": "^0.3.22"
 }
 ```
 
@@ -32,7 +35,7 @@ This project depends on:
 after that is done run:
 
 ```bash
-bun install --frozen-lockfile
+bun install
 docker-compose build && docker-compose up -d
 ```
 

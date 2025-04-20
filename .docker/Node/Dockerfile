@@ -5,7 +5,7 @@ FROM base AS install
 # Installs deps
 WORKDIR /app
 COPY app/ ./
-RUN bun install --frozen-lockfile
+RUN bun install
 
 
 ENTRYPOINT ["bun", "--watch", "."]

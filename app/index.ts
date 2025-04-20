@@ -1,32 +1,37 @@
 import { connectDiscord } from "./actions/connectDiscord/connectDiscord";
-import { connectMariaDB } from "./actions/connectMariadb/connectMariaDB";
 import { registerSlashCommand } from "./actions/registerSlashCommand/registerSlashCommand";
+import { connectTypeORM } from "./actions/connectTypeORM/TypeORM";
 import ping from "./commands/(player)/ping/ping";
 
+const db_host = process.env.DB_HOST as string;
+const db_port = Number.parseInt(process.env.DB_PORT as string);
+const db_user = process.env.DB_USER as string;
+const db_password = process.env.DB_PASSWORD as string;
+const db_name = process.env.DB_NAME as string;
 
-const db_conn = connectMariaDB({
-  db: process.env.DB_NAME as string,
-  host: process.env.DB_HOST as string,
-  user: process.env.DB_USER as string,
-  pass: process.env.DB_PASSWORD as string,
-  port: parseInt(process.env.DB_PORT as string),
-});
-
-const token = process.env.TOKEN as string;
-const client = process.env.CLIENT_ID as string;
-const channelId = process.env.EVENT_CHANNEL_ID as string;
+const ds_token = process.env.DS_TOKEN as string;
+const ds_client = process.env.DS_CLIENT_ID as string;
+const ds_channelId = process.env.DS_EVENT_CHANNEL_ID as string;
 
 async function initialize() {
-  const ds_conn = await connectDiscord({
-    token,
-    client,
-    channelId,
-  });
+	connectTypeORM({
+		host: db_host,
+		port: db_port,
+		username: db_user,
+		password: db_password,
+		database: db_name,
+	});
 
-  await registerSlashCommand({
-    client: { token: token, clientId: client, object: ds_conn },
-    command: ping,
-  });
+	const ds_conn = await connectDiscord({
+		token: ds_token,
+		client: ds_client,
+		channelId: ds_channelId,
+	});
+
+	await registerSlashCommand({
+		client: { token: ds_token, clientId: ds_client, object: ds_conn },
+		command: ping,
+	});
 }
 
 initialize().catch((err) => console.error("Failed to initialize bot:", err));
