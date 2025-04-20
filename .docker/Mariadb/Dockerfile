@@ -1,3 +1,3 @@
 FROM mariadb:latest
 
-COPY ./init.sql /docker-entrypoint-initdb.d/
+COPY ./sql/ep_trivia_base_20-04-2025.sql /docker-entrypoint-initdb.d/
