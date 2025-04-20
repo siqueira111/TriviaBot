@@ -24,8 +24,8 @@ interface PlayerEventDataInterface {
 interface PlayerStatsInterface {
 	player: PlayerInterface;
 	eventsWon: number;
+	eventsPlayed: number;
 	currentEvent: PlayerEventDataInterface;
-	eventHistory?: PlayerEventDataInterface[];
 }
 
 export enum QuestionEnum {
