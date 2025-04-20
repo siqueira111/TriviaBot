@@ -1,12 +1,8 @@
-import dotenv from "dotenv";
 import { connectDiscord } from "./actions/connectDiscord/connectDiscord";
-import {
-  connectMariaDB,
-} from "./actions/connectMariadb/connectMariaDB";
+import { connectMariaDB } from "./actions/connectMariadb/connectMariaDB";
 import { registerSlashCommand } from "./actions/registerSlashCommand/registerSlashCommand";
 import ping from "./commands/(player)/ping/ping";
 
-dotenv.config();
 
 const db_conn = connectMariaDB({
   db: process.env.DB_NAME as string,

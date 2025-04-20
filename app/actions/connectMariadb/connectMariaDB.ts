@@ -2,7 +2,7 @@ import mariadb from "mariadb"
 import { connectionInterface } from "./types";
 
 const RETRY_DELAY = 3000 as const;
-const MAX_ATTEMPTS = 3 as const;
+const MAX_ATTEMPTS = 10 as const;
 
 export async function connectMariaDB(connectionInfo: connectionInterface) {
   let connection,

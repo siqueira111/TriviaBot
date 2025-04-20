@@ -1,13 +1,11 @@
-FROM node:23-slim
+# Installing bun
+FROM oven/bun:1 AS base
+FROM base AS install
 
-# command: sh -c "npm run dev"
-
-RUN npm install -g npm@latest
-
+# Installs deps
 WORKDIR /app
-
 COPY app/ ./
+RUN bun install --frozen-lockfile
 
-RUN npm install
 
-CMD ["npx", "nodemon", "--watch", ".", "--exec", "npx", "ts-node", "index.ts"]
+ENTRYPOINT ["bun", "--watch", "."]
