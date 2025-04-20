@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: maria_db:3306
--- Generation Time: Apr 20, 2025 at 02:23 PM
+-- Generation Time: Apr 20, 2025 at 02:28 PM
 -- Server version: 11.7.2-MariaDB-ubu2404
 -- PHP Version: 8.2.27
 
@@ -41,7 +41,6 @@ CREATE TABLE `trivia_attributes` (
 INSERT INTO `trivia_attributes` (`Attribute`, `Description`, `Type`, `Status`) VALUES
 ('eventTotalAnswers', 'Total of answers for the event', 'Event', 1),
 ('eventTotalPlayers', 'Total players that played the event', 'Event', 1),
-('eventWinner', 'The winner of the event', 'Event', 1),
 ('playerEventsPlayed', 'Total events that a played participated', 'Player', 1),
 ('playerEventsWon', 'Quantity of events that the player won', 'Player', 1);
 
@@ -53,6 +52,7 @@ INSERT INTO `trivia_attributes` (`Attribute`, `Description`, `Type`, `Status`) V
 
 CREATE TABLE `trivia_event` (
   `Id` int(11) NOT NULL,
+  `WinnerId` int(11) DEFAULT NULL,
   `Duration` time DEFAULT NULL,
   `StartDate` datetime DEFAULT NULL,
   `EndDate` datetime DEFAULT NULL,
@@ -135,7 +135,8 @@ ALTER TABLE `trivia_attributes`
 -- Indexes for table `trivia_event`
 --
 ALTER TABLE `trivia_event`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `WinnerId` (`WinnerId`);
 
 --
 -- Indexes for table `trivia_event_attribute`
@@ -196,6 +197,12 @@ ALTER TABLE `trivia_questions`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `trivia_event`
+--
+ALTER TABLE `trivia_event`
+  ADD CONSTRAINT `trivia_event_ibfk_1` FOREIGN KEY (`WinnerId`) REFERENCES `trivia_player` (`Id`);
 
 --
 -- Constraints for table `trivia_event_attribute`
