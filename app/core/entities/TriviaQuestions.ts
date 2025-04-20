@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { TriviaEvent } from "./TriviaEvent";
 
 export enum QuestionEnum {
 	CTF = 0,
@@ -7,12 +8,15 @@ export enum QuestionEnum {
 }
 
 @Entity()
-export class TriviaEvent {
+export class TriviaQuestions {
 	@PrimaryGeneratedColumn()
 	Id!: number;
 
-	@Column()
-	event!: string;
+	@ManyToOne(
+		() => TriviaEvent,
+		(event) => event.Id,
+	)
+	event!: TriviaEvent;
 
 	@Column()
 	Content!: string;

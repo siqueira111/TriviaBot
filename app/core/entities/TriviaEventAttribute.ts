@@ -1,12 +1,29 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import {
+	Entity,
+	PrimaryGeneratedColumn,
+	Column,
+	ManyToOne,
+	ManyToMany,
+} from "typeorm";
+import { TriviaEvent } from "./TriviaEvent";
+import { TriviaAttributes } from "./TriviaAttributes";
 
 @Entity()
-export class TriviaEvent {
+export class TriviaEventAttribute {
 	@PrimaryGeneratedColumn()
-	event!: number;
+	Id!: number;
 
-	@Column()
-	attribute!: string;
+	@ManyToOne(
+		() => TriviaEvent,
+		(event) => event.Id,
+	)
+	event!: TriviaEvent;
+
+	@ManyToOne(
+		() => TriviaAttributes,
+		(attribute) => attribute.Attribute,
+	)
+	attribute!: TriviaAttributes;
 
 	@Column()
 	Value!: string;

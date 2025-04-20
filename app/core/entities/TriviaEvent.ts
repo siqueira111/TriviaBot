@@ -1,12 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import {
+	Entity,
+	PrimaryGeneratedColumn,
+	Column,
+	ManyToMany,
+	ManyToOne,
+	Timestamp,
+} from "typeorm";
+import { TriviaPlayer } from "./TriviaPlayer";
 
 @Entity()
 export class TriviaEvent {
 	@PrimaryGeneratedColumn()
 	Id!: number;
 
-	@Column()
-	WinnerId!: number;
+	@ManyToOne(
+		() => TriviaPlayer,
+		(player) => player.Id,
+	)
+	winnerId!: number;
 
 	@Column()
 	Duration!: string;

@@ -1,9 +1,24 @@
 import { DataSource } from "typeorm";
-import { TriviaEvent } from "../../core/entities/TriviaEvent";
 import type { connectionInterface } from "./types";
+import { TriviaAttributes } from "@/core/entities/TriviaAttributes";
+import { TriviaEvent } from "@/core/entities/TriviaEvent";
+import { TriviaEventAttribute } from "@/core/entities/TriviaEventAttribute";
+import { TriviaPlayer } from "@/core/entities/TriviaPlayer";
+import { TriviaPlayerAttributes } from "@/core/entities/TriviaPlayerAttributes";
+import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
+import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
 
 const RETRY_DELAY = 3000 as const;
-const MAX_ATTEMPTS = 10 as const;
+const MAX_ATTEMPTS = 2 as const;
+const TriviaEntities = [
+	TriviaAttributes,
+	TriviaEvent,
+	TriviaEventAttribute,
+	TriviaPlayer,
+	TriviaPlayerAttributes,
+	TriviaQuestions,
+	TriviaQuestionsOption,
+];
 
 export async function connectTypeORM(connectionData: connectionInterface) {
 	console.log("Initializing TypeORM....");
@@ -14,7 +29,7 @@ export async function connectTypeORM(connectionData: connectionInterface) {
 		username: connectionData.username,
 		password: connectionData.password,
 		database: connectionData.database,
-		entities: [TriviaEvent],
+		entities: TriviaEntities,
 		migrations: ["core/migrations/**/*.ts"],
 		synchronize: false,
 	});
@@ -22,6 +37,7 @@ export async function connectTypeORM(connectionData: connectionInterface) {
 	let attempts = 0;
 
 	while (attempts < MAX_ATTEMPTS) {
+		await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
 		try {
 			await AppDataSource.initialize();
 			console.log("Connection by TypeORM with MariaDB established ;)");
@@ -30,15 +46,13 @@ export async function connectTypeORM(connectionData: connectionInterface) {
 			attempts++;
 
 			if (attempts >= MAX_ATTEMPTS) {
-				console.error("Connection by TypeORM with MariDB failed ;(", err);
+				console.error("Connection by TypeORM with MariaDB failed ;(", err);
 				break;
 			}
 
 			console.error(
 				`Attempt ${attempts} failed. Retrying in ${RETRY_DELAY / 1000} seconds...`,
 			);
-
-			await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
 		}
 	}
 }

@@ -6,9 +6,9 @@ export enum AttributeEnum {
 }
 
 @Entity()
-export class TriviaEvent {
+export class TriviaAttributes {
 	@PrimaryGeneratedColumn()
-	Id!: string;
+	Attribute!: string;
 
 	@Column()
 	Description!: string;
