@@ -48,13 +48,11 @@ export async function registerSlashCommand({
 			(await client.object).on(
 				Events.InteractionCreate,
 				async (interaction: Interaction<CacheType>) => {
-					// Check if the interaction is a chat input command
 					if (!interaction.isChatInputCommand()) return;
 
 					const chatInputInteraction =
 						interaction as ChatInputCommandInteraction;
 
-					// Handle single command execution
 					if (
 						command &&
 						chatInputInteraction.commandName === command.data.name
@@ -69,7 +67,6 @@ export async function registerSlashCommand({
 						}
 					}
 
-					// Handle multiple commands execution
 					if (commands) {
 						for (const cmd of commands) {
 							if (chatInputInteraction.commandName === cmd.data.name) {
