@@ -1,6 +1,6 @@
 services:
-  mariadb_db:
-    container_name: mariadb_db
+  maria_db:
+    container_name: maria_db
     build:
       context: .
       dockerfile: .docker/Mariadb/Dockerfile
@@ -9,19 +9,19 @@ services:
     ports:
       - "5434:3306"
     volumes:
-      - mariadb_data:/var/lib/mysql
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "mariadb-admin",
-          "ping",
-          "-uroot",
-          "-p$MARIADB_ROOT_PASSWORD",
-        ]
-      interval: 10s
-      retries: 5
-      timeout: 5s
+      - maria_db_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  php_my_admin:
+    image: phpmyadmin/phpmyadmin
+    container_name: PhpMyAdmin
+    env_file:
+      - ./app/.env      
+    ports:
+      - "8080:80"
+    depends_on:
+      - maria_db
     networks:
       - app_network
 
@@ -31,7 +31,7 @@ services:
       context: .
       dockerfile: .docker/Node/Dockerfile
     depends_on:
-      - mariadb_db
+      - maria_db
     env_file:
       - ./app/.env
     volumes:
@@ -44,4 +44,4 @@ networks:
     driver: bridge
 
 volumes:
-  mariadb_data:
+  maria_db_data:
