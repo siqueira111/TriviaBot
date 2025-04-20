@@ -6,17 +6,8 @@ export class TriviaEvent {
 	Id!: number;
 
 	@Column()
-	WinnerId!: number;
+	DiscordId!: number;
 
 	@Column()
-	Duration!: string;
-
-	@Column()
-	StartDate!: Date;
-
-	@Column()
-	EndDate!: Date;
-
-	@Column()
-	Description!: string;
+	Name!: string;
 }

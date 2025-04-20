@@ -3,20 +3,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity()
 export class TriviaEvent {
 	@PrimaryGeneratedColumn()
-	Id!: number;
+	player!: number;
 
 	@Column()
-	WinnerId!: number;
+	attribute!: number;
 
 	@Column()
-	Duration!: string;
-
-	@Column()
-	StartDate!: Date;
-
-	@Column()
-	EndDate!: Date;
-
-	@Column()
-	Description!: string;
+	Value!: string;
 }

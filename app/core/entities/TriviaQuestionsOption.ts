@@ -6,17 +6,11 @@ export class TriviaEvent {
 	Id!: number;
 
 	@Column()
-	WinnerId!: number;
+	question!: number;
 
 	@Column()
-	Duration!: string;
+	Content!: string;
 
 	@Column()
-	StartDate!: Date;
-
-	@Column()
-	EndDate!: Date;
-
-	@Column()
-	Description!: string;
+	IsCorrect!: boolean;
 }
