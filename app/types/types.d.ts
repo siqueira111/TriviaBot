@@ -21,9 +21,12 @@ interface PlayerStatsInterface {
 interface QuestionOptionsInterface {
   optionId: number;
   content: Text;
+  correctAnswers: number
+  wrongAnswers: number;
+  totalAnswers: number;
 }
 
-enum QuestionEnumInterface {
+export enum QuestionEnum {
   MultipleChoice = "MultipleChoice",
   Boolean = "Boolean",
 }
@@ -31,7 +34,7 @@ enum QuestionEnumInterface {
 interface QuestionInterface {
   questionId: number;
   question: Text;
-  questionType: QuestionEnumInterface;
+  questionType: QuestionEnum;
   correctAnswer: number;
 }
 
@@ -47,6 +50,5 @@ export type PlayerType = PlayerInterface;
 export type PlayerStatsType = PlayerStatsInterface;
 export type PlayerEventType = PlayerEventDataInterface;
 export type OptionType = QuestionOptionsInterface;
-export type OptionEnum = QuestionEnumInterface;
 export type QuestionType = QuestionInterface;
 export type EventType = EventInterface;
