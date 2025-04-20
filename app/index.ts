@@ -17,9 +17,9 @@ const db_conn = connectMariaDB({
   port: parseInt(process.env.DB_PORT as string),
 });
 
-const token = process.env.DS_TOKEN as string;
-const client = process.env.DS_CLIENT_ID as string;
-const channelId = process.env.DS_EVENT_CHANNEL_ID as string;
+const token = process.env.TOKEN as string;
+const client = process.env.CLIENT_ID as string;
+const channelId = process.env.EVENT_CHANNEL_ID as string;
 
 async function initialize() {
   const ds_conn = await connectDiscord({

@@ -1,4 +1,4 @@
-const mariadb = require("mariadb");
+import mariadb from "mariadb"
 import { connectionInterface } from "./types";
 
 export type connectionType = connectionInterface;
@@ -11,22 +11,24 @@ export async function connectMariaDB(connectionInfo: connectionType) {
   
   while (attempts < maxAttempts) {
     try {
-      const connection = await mariadb.createConnection({
+      connection = await mariadb.createConnection({
         host: connectionInfo.host,
         user: connectionInfo.user,
         password: connectionInfo.pass,
         database: connectionInfo.db,
-        port: connectionInfo.port,
+        port: 3306,
       });
 
       console.log("Connection with MariaDB established ;)");
       break;
     } catch (err) {
-      console.error(`Attempt ${attempts} failed. Retrying in ${retryDelay / 1000} seconds...`);
+      attempts++
+
       if (attempts >= maxAttempts) {
         console.error("Connection with MariDB failed ;(", err);
         break;
-      }
+      } else console.error(`Attempt ${attempts} failed. Retrying in ${retryDelay / 1000} seconds...`);
+
       await new Promise(resolve => setTimeout(resolve, retryDelay));
     }
   }
