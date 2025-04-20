@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import { connectDiscord } from "./actions/connectDiscord/connectDiscord";
 import {
   connectMariaDB,
-  connectionType,
 } from "./actions/connectMariadb/connectMariaDB";
 import { registerSlashCommand } from "./actions/registerSlashCommand/registerSlashCommand";
 import ping from "./commands/(player)/ping/ping";

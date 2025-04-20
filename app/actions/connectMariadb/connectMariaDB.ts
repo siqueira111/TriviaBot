@@ -1,15 +1,14 @@
 import mariadb from "mariadb"
 import { connectionInterface } from "./types";
 
-export type connectionType = connectionInterface;
+const RETRY_DELAY = 3000 as const;
+const MAX_ATTEMPTS = 3 as const;
 
-export async function connectMariaDB(connectionInfo: connectionType) {
-  const retryDelay = 1000;
-  const maxAttempts = 3;
-  let attempts = 0;
-  let connection;
+export async function connectMariaDB(connectionInfo: connectionInterface) {
+  let connection,
+    attempts = 0;
   
-  while (attempts < maxAttempts) {
+  while (attempts < MAX_ATTEMPTS && !connection) {
     try {
       connection = await mariadb.createConnection({
         host: connectionInfo.host,
@@ -20,16 +19,15 @@ export async function connectMariaDB(connectionInfo: connectionType) {
       });
 
       console.log("Connection with MariaDB established ;)");
-      break;
     } catch (err) {
       attempts++
 
-      if (attempts >= maxAttempts) {
+      if (attempts >= MAX_ATTEMPTS) {
         console.error("Connection with MariDB failed ;(", err);
         break;
-      } else console.error(`Attempt ${attempts} failed. Retrying in ${retryDelay / 1000} seconds...`);
+      } else console.error(`Attempt ${attempts} failed. Retrying in ${RETRY_DELAY / 1000} seconds...`);
 
-      await new Promise(resolve => setTimeout(resolve, retryDelay));
+      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
     }
   }
 
