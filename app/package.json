@@ -1,9 +1,9 @@
 {
-  "name": "epeventdemo",
+  "name": "ep_trivia_bot",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node app/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
