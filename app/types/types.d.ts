@@ -1,3 +1,10 @@
+import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+
+export interface commandInterface {
+  data: SlashCommandBuilder;
+  execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
+}
+
 interface PlayerInterface {
   userId: number;
   rank: number;
