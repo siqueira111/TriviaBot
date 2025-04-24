@@ -5,6 +5,11 @@ import ping from "./commands/(player)/ping/ping";
 import leaderboard from "./commands/(player)/leaderboard/leaderboard";
 import stats from "./commands/(player)/stats/stats";
 import play from "./commands/(player)/play/play";
+import type { DataSource } from "typeorm";
+import factsJson from "@/facts.json";
+import multipleChoiceJson from "@/multipleChoice.json";
+import { ReadFacts, ReadMultipleChoices } from "./actions/json/JsonProducers";
+import type { FactsType, MultipleChoiceType } from "./actions/json/types";
 
 const db_host = process.env.DB_HOST as string;
 const db_port = Number.parseInt(process.env.DB_PORT as string);
@@ -16,8 +21,10 @@ const ds_token = process.env.DS_TOKEN as string;
 const ds_client = process.env.DS_CLIENT_ID as string;
 const ds_channelId = process.env.DS_EVENT_CHANNEL_ID as string;
 
+export let AppDataSource: Promise<DataSource>;
+
 async function initialize() {
-	connectTypeORM({
+	AppDataSource = connectTypeORM({
 		host: db_host,
 		port: db_port,
 		username: db_user,

@@ -4,8 +4,8 @@
     "types": ["node"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": "./",
-    "outDir": "./dist",
+    "baseUrl": ".",
+    "outDir": "../dist",
     "strict": true,
     "paths": {
       "@/*": ["./*"]
@@ -14,8 +14,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["app/dist"]
+  "include": ["**/*.ts"],
+  "exclude": ["dist"]
 }

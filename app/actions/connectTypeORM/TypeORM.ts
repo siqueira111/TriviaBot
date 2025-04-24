@@ -4,7 +4,7 @@ import { TriviaAttributes } from "@/core/entities/TriviaAttributes";
 import { TriviaEvent } from "@/core/entities/TriviaEvent";
 import { TriviaEventAttribute } from "@/core/entities/TriviaEventAttribute";
 import { TriviaPlayer } from "@/core/entities/TriviaPlayer";
-import { TriviaPlayerAttributes } from "@/core/entities/TriviaPlayerAttributes";
+import { TriviaPlayerAttribute } from "@/core/entities/TriviaPlayerAttribute";
 import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
 
@@ -15,7 +15,7 @@ const TriviaEntities = [
 	TriviaEvent,
 	TriviaEventAttribute,
 	TriviaPlayer,
-	TriviaPlayerAttributes,
+	TriviaPlayerAttribute,
 	TriviaQuestions,
 	TriviaQuestionsOption,
 ];
@@ -32,6 +32,7 @@ export async function connectTypeORM(connectionData: connectionInterface) {
 		entities: TriviaEntities,
 		migrations: ["core/migrations/**/*.ts"],
 		synchronize: false,
+		migrationsRun: true,
 	});
 
 	let attempts = 0;
@@ -55,4 +56,5 @@ export async function connectTypeORM(connectionData: connectionInterface) {
 			);
 		}
 	}
+	return AppDataSource;
 }
