@@ -9,7 +9,7 @@ import { TriviaAttributes } from "./TriviaAttributes";
 import { TriviaPlayer } from "./TriviaPlayer";
 
 @Entity()
-export class TriviaPlayerAttributes {
+export class TriviaPlayerAttribute {
 	@PrimaryGeneratedColumn()
 	Id!: number;
 

@@ -5,6 +5,7 @@ import {
 	ManyToMany,
 	ManyToOne,
 	Timestamp,
+	OneToMany,
 } from "typeorm";
 import { TriviaPlayer } from "./TriviaPlayer";
 
@@ -17,7 +18,7 @@ export class TriviaEvent {
 		() => TriviaPlayer,
 		(player) => player.Id,
 	)
-	winnerId!: number;
+	winnerId!: TriviaPlayer;
 
 	@Column()
 	Duration!: string;

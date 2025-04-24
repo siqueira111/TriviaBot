@@ -1,13 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
 
 export enum AttributeEnum {
-	Event = 0,
-	Player = 1,
+	Event = "Event",
+	Player = "Player",
 }
 
 @Entity()
 export class TriviaAttributes {
-	@PrimaryGeneratedColumn()
+	@PrimaryColumn()
 	Attribute!: string;
 
 	@Column()

@@ -1,11 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import {
+	Entity,
+	PrimaryGeneratedColumn,
+	Column,
+	ManyToOne,
+	Index,
+} from "typeorm";
 import { TriviaEvent } from "./TriviaEvent";
-
-export enum QuestionEnum {
-	CTF = 0,
-	Boolean = 1,
-	MultipleChoice = 2,
-}
+import { QuestionEnum } from "@/enums/enums";
 
 @Entity()
 export class TriviaQuestions {
@@ -15,8 +16,10 @@ export class TriviaQuestions {
 	@ManyToOne(
 		() => TriviaEvent,
 		(event) => event.Id,
+		{ nullable: true },
 	)
-	event!: TriviaEvent;
+	@Index()
+	event?: TriviaEvent | null;
 
 	@Column()
 	Content!: string;
@@ -26,4 +29,7 @@ export class TriviaQuestions {
 		enum: QuestionEnum,
 	})
 	Type!: QuestionEnum;
+
+	@Column()
+	IsTrue!: boolean;
 }

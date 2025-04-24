@@ -5,9 +5,9 @@ export class TriviaPlayer {
 	@PrimaryGeneratedColumn()
 	Id!: number;
 
-	@Column()
-	DiscordId!: number;
+	@Column("bigint")
+	DiscordId!: string;
 
 	@Column()
-	Name!: string;
+	Name!: string | null;
 }
