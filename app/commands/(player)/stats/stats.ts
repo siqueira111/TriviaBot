@@ -7,7 +7,7 @@ import type { commandInterface } from "@/types/types";
 async function statsExecute(
 	interaction: ChatInputCommandInteraction,
 ): Promise<void> {
-	await interaction.reply("Stats!");
+	await interaction.reply(interaction.user.id);
 }
 
 const stats: commandInterface = {
