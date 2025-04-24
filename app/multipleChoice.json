@@ -1,8 +1,14 @@
 {
   "multiple": [
     {
-      "question": "What is Azrael?",
-      "options": ["Global Administrator", "Member", "Owner", "A random user"],
+      "question": "Who is Azrael?",
+      "options": [
+        "Global Administrator",
+        "Member",
+        "Owner",
+        "Dictator of The Server",
+        "The Supreme Leader"
+      ],
       "answer": 0
     },
     {
@@ -12,18 +18,13 @@
     },
     {
       "question": "What is the capital of France?",
-      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "options": ["Berlin", "Madrid", "Paris", "Rome", "Cat Island"],
       "answer": 2
     },
     {
       "question": "What is the largest planet in our solar system?",
       "options": ["Earth", "Mars", "Jupiter", "Saturn"],
       "answer": 2
-    },
-    {
-      "question": "What is the chemical symbol for gold?",
-      "options": ["Au", "Ag", "Pb", "Fe"],
-      "answer": 0
     },
     {
       "question": "What is the speed of light?",
@@ -337,7 +338,7 @@
     },
     {
       "question": "Who made this bot?",
-      "options": ["Azrael", "Loafc", "Eric Parker", "Jak"],
+      "options": ["Azrael", "Flamma", "Eric Parker", "Jak", "Loafc"],
       "answer": 1
     }
   ]
