@@ -28,12 +28,6 @@ interface PlayerStatsInterface {
 	currentEvent: PlayerEventDataInterface;
 }
 
-export enum QuestionEnum {
-	MultipleChoice = "MultipleChoice",
-	Boolean = "Boolean",
-	CTF = "CaptureTheFlag",
-}
-
 interface QuestionInterface {
 	questionId: number;
 	question: Text;
