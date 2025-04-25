@@ -24,24 +24,32 @@ const ds_channelId = process.env.DS_EVENT_CHANNEL_ID as string;
 export let AppDataSource: Promise<DataSource>;
 
 async function initialize() {
-	AppDataSource = connectTypeORM({
-		host: db_host,
-		port: db_port,
-		username: db_user,
-		password: db_password,
-		database: db_name,
-	});
+  console.log("Initializing application....");
+  if (ds_token === "") {
+    throw new Error("This app requires a discord token to be set");
+  }
+  if (ds_client === "") {
+    throw new Error("This app requires a bot client id to be set");
+  }
 
-	const ds_conn = await connectDiscord({
-		token: ds_token,
-		client: ds_client,
-		channelId: ds_channelId,
-	});
+  AppDataSource = connectTypeORM({
+    host: db_host,
+    port: db_port,
+    username: db_user,
+    password: db_password,
+    database: db_name,
+  });
 
-	await registerSlashCommand({
-		client: { token: ds_token, clientId: ds_client, object: ds_conn },
-		commands: [ping, play, leaderboard, stats],
-	});
+  const ds_conn = await connectDiscord({
+    token: ds_token,
+    client: ds_client,
+    channelId: ds_channelId,
+  });
+
+  await registerSlashCommand({
+    client: { token: ds_token, clientId: ds_client, object: ds_conn },
+    commands: [ping, play, leaderboard, stats],
+  });
 }
 
-initialize().catch((err) => console.error("Failed to initialize bot:", err));
+initialize();
