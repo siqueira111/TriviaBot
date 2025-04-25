@@ -35,8 +35,8 @@ This project depends on:
 after that is done run:
 
 ```bash
-bun install
-docker-compose build && docker-compose up -d
+cd app/ && bun install
+cd ../ && docker-compose build && docker-compose up -d
 ```
 
 <br>
