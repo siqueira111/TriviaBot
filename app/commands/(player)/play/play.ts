@@ -14,14 +14,14 @@ import {
 } from "@/core/services/TriviaPlayer/PlayerService";
 import { TriviaPlayer } from "@/core/entities/TriviaPlayer";
 import {
-  ButtonInteraction,
-  ChatInputCommandInteraction,
+  type ButtonInteraction,
+  type ChatInputCommandInteraction,
   ComponentType,
 } from "discord.js";
 import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
 import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 import { QuestionEnum } from "@/enums/enums";
-import { produceInterface, questHandlerInterface } from "./types";
+import type { produceInterface, questHandlerInterface } from "./types";
 
 function generateRandomSequence() {
   // read all the questions, shuffle it by id, and then return the ids in an array
@@ -37,14 +37,14 @@ async function questionHandler({
   EditLast,
   collector,
 }: questHandlerInterface) {
-  let response: boolean = true;
+  let response = true;
 
-  if (fact.Type == QuestionEnum.Boolean) {
+  if (fact.Type === QuestionEnum.Boolean) {
     response = (interaction.customId === "true") === fact.IsTrue;
     await EditLast(response ? "Correct!" : "Incorrect! You suck!");
   }
 
-  if (fact.Type == QuestionEnum.MultipleChoice) {
+  if (fact.Type === QuestionEnum.MultipleChoice) {
   }
 
   collector?.stop();

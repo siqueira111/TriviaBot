@@ -1,10 +1,10 @@
-import {
+import type {
   ButtonInteraction,
   ChatInputCommandInteraction,
   InteractionCollector,
 } from "discord.js";
-import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
-import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
+import type { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
+import type { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 
 export interface questHandlerInterface {
   interaction: ButtonInteraction;
