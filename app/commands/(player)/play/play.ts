@@ -1,40 +1,158 @@
-import {
-	type ChatInputCommandInteraction,
-	SlashCommandBuilder,
-} from "discord.js";
+const {
+  SlashCommandBuilder,
+  EmbedBuilder,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  MessageFlags,
+} = require("discord.js");
+
 import type { commandInterface } from "@/types/types";
 import {
-	createPlayerData,
-	getPlayer,
+  createPlayerData,
+  getPlayer,
 } from "@/core/services/TriviaPlayer/PlayerService";
 import { TriviaPlayer } from "@/core/entities/TriviaPlayer";
+import {
+  ButtonInteraction,
+  ChatInputCommandInteraction,
+  ComponentType,
+} from "discord.js";
+import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
+import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
+import { QuestionEnum } from "@/enums/enums";
+import { produceInterface, questHandlerInterface } from "./types";
+
+function generateRandomSequence() {
+  // read all the questions, shuffle it by id, and then return the ids in an array
+  let sequence: number[] = [];
+
+  return sequence;
+}
+
+async function questionHandler({
+  interaction,
+  fact,
+  options,
+  EditLast,
+  collector,
+}: questHandlerInterface) {
+  let response: boolean = true;
+
+  if (fact.Type == QuestionEnum.Boolean) {
+    response = (interaction.customId === "true") === fact.IsTrue;
+    await EditLast(response ? "Correct!" : "Incorrect! You suck!");
+  }
+
+  if (fact.Type == QuestionEnum.MultipleChoice) {
+  }
+
+  collector?.stop();
+  return response;
+}
+
+async function produceQuestion({ interaction, fact }: produceInterface) {
+  const comps = [
+    new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId("true")
+        .setStyle(ButtonStyle.Success)
+        .setLabel("True"),
+      new ButtonBuilder()
+        .setCustomId("false")
+        .setStyle(ButtonStyle.Danger)
+        .setLabel("False")
+    ),
+  ];
+
+  interaction.editReply({
+    embeds: [
+      new EmbedBuilder()
+        .setTitle("Play Game")
+        .setDescription(
+          `No way this is true, right? you will not be able to answer it ;3\n\`${fact.Content}\``
+        )
+        .setColor("7ad1a1")
+        .setFooter({ text: `Question $ {questionCounter}` }),
+    ],
+    components: comps,
+    flags: [MessageFlags.Ephemeral],
+  });
+}
 
 async function playExecute(
-	interaction: ChatInputCommandInteraction,
+  interaction: ChatInputCommandInteraction
 ): Promise<void> {
-	const player: TriviaPlayer = {
-		Id: 0,
-		DiscordId: interaction.user.id,
-		Name: interaction.user.globalName,
-	};
+  const Send = interaction.reply.bind(interaction);
+  const EditLast = interaction.editReply.bind(interaction);
+  const filter = (i: { deferUpdate: () => void; user: { id: string } }) => {
+    i.deferUpdate();
+    return i.user.id === interaction.user.id;
+  };
 
-	let playerData = await getPlayer(player);
-	if (!playerData) {
-		const newPlayer = new TriviaPlayer();
-		newPlayer.DiscordId = interaction.user.id;
-		newPlayer.Name = interaction.user.globalName;
-		playerData = await createPlayerData(newPlayer);
-		await interaction.reply("New Player!");
-	} else {
-		await interaction.reply("Old Player!");
-	}
+  const player: TriviaPlayer = {
+    Id: 0,
+    DiscordId: interaction.user.id,
+    Name: interaction.user.globalName,
+  };
+
+  let playerData = await getPlayer(player);
+  if (!playerData) {
+    const newPlayer = new TriviaPlayer();
+    newPlayer.DiscordId = interaction.user.id;
+    newPlayer.Name = interaction.user.globalName;
+    playerData = await createPlayerData(newPlayer);
+  }
+
+  await Send("Welcome to the game, Lets play!");
+
+  const Fact = new TriviaQuestions();
+
+  Fact.Content = "Do you know that flamm knows?";
+  Fact.IsTrue = true;
+  Fact.Type = QuestionEnum.Boolean;
+  Fact.event = null;
+
+  const loop = async () => {
+    const collector = interaction.channel?.createMessageComponentCollector({
+      componentType: ComponentType.Button,
+      filter,
+      time: 15000,
+    });
+
+    await produceQuestion({
+      interaction: interaction,
+      fact: Fact,
+      EditLast: EditLast,
+      collector: collector,
+      Send: Send,
+    });
+
+    collector?.on("collect", async (userInteraction: ButtonInteraction) => {
+      const correctAnswer = await questionHandler({
+        interaction: userInteraction,
+        fact: Fact,
+        collector: collector,
+        EditLast: EditLast,
+      });
+
+      if (correctAnswer) {
+        await loop();
+      } else {
+        await EditLast({ content: "Bruh, U suck....", components: [] });
+        collector?.stop();
+      }
+    });
+  };
+
+  await loop();
 }
 
 const play: commandInterface = {
-	data: new SlashCommandBuilder()
-		.setName("play")
-		.setDescription("Starts playing the event"),
-	execute: playExecute,
+  data: new SlashCommandBuilder()
+    .setName("play")
+    .setDescription("Starts playing the event"),
+  execute: playExecute,
 };
 
 export default play;
