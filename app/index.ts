@@ -6,10 +6,9 @@ import leaderboard from "./commands/(player)/leaderboard/leaderboard";
 import stats from "./commands/(player)/stats/stats";
 import play from "./commands/(player)/play/play";
 import type { DataSource } from "typeorm";
-import factsJson from "@/facts.json";
-import multipleChoiceJson from "@/multipleChoice.json";
-import { ReadFacts, ReadMultipleChoices } from "./actions/json/JsonProducers";
-import type { FactsType, MultipleChoiceType } from "./actions/json/types";
+// import { ReadFacts, ReadMultipleChoices } from "./actions/json/JsonProducers";
+// import { facts } from "./facts.json";
+// import { multiple } from "./multipleChoice.json";
 
 const db_host = process.env.DB_HOST as string;
 const db_port = Number.parseInt(process.env.DB_PORT as string);
@@ -45,6 +44,9 @@ async function initialize() {
     client: ds_client,
     channelId: ds_channelId,
   });
+
+  // ReadFacts(facts);
+  // ReadMultipleChoices(multiple);
 
   await registerSlashCommand({
     client: { token: ds_token, clientId: ds_client, object: ds_conn },

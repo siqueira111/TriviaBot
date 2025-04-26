@@ -22,12 +22,34 @@ import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
 import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 import { QuestionEnum } from "@/enums/enums";
 import type { produceInterface, questHandlerInterface } from "./types";
+import { AppDataSource } from "@/index";
 
-function generateRandomSequence() {
+async function generateRandomSequence(maxQuestion = 25) {
+  function shuffleArray(array: TriviaQuestions[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   // read all the questions, shuffle it by id, and then return the ids in an array
-  let sequence: number[] = [];
 
-  return sequence;
+  const booleanQuestions = await (await AppDataSource)
+    .getRepository(TriviaQuestions)
+    .findBy({ Type: QuestionEnum.Boolean });
+
+  shuffleArray(booleanQuestions);
+
+  /*
+export async function getPlayer(player: TriviaPlayer) {
+  const playerData = (await AppDataSource)
+    .getRepository(TriviaPlayer)
+    .findOneBy({ DiscordId: player.DiscordId });
+  return await playerData;
+}
+*/
+
+  return booleanQuestions;
 }
 
 async function questionHandler({
@@ -106,14 +128,18 @@ async function playExecute(
 
   await Send("Welcome to the game, Lets play!");
 
-  const Fact = new TriviaQuestions();
+  let Fact = new TriviaQuestions();
 
   Fact.Content = "Do you know that flamm knows?";
   Fact.IsTrue = true;
   Fact.Type = QuestionEnum.Boolean;
   Fact.event = null;
 
-  const loop = async () => {
+  const Questions = await generateRandomSequence();
+
+  for (const question of Questions) {
+    console.log({ question });
+
     const collector = interaction.channel?.createMessageComponentCollector({
       componentType: ComponentType.Button,
       filter,
@@ -122,30 +148,34 @@ async function playExecute(
 
     await produceQuestion({
       interaction: interaction,
-      fact: Fact,
+      fact: question,
       EditLast: EditLast,
       collector: collector,
       Send: Send,
     });
 
-    collector?.on("collect", async (userInteraction: ButtonInteraction) => {
-      const correctAnswer = await questionHandler({
-        interaction: userInteraction,
-        fact: Fact,
-        collector: collector,
-        EditLast: EditLast,
+    const answered = await new Promise((resolve) => {
+      collector?.on("collect", async (userInteraction: ButtonInteraction) => {
+        const correctAnswer = await questionHandler({
+          interaction: userInteraction,
+          fact: question,
+          collector: collector,
+          EditLast: EditLast,
+        });
+
+        if (!correctAnswer) {
+          await EditLast({ content: "Bruh, U suck....", components: [] });
+          collector?.stop();
+        }
+
+        resolve(correctAnswer);
       });
-
-      if (correctAnswer) {
-        await loop();
-      } else {
-        await EditLast({ content: "Bruh, U suck....", components: [] });
-        collector?.stop();
-      }
     });
-  };
 
-  await loop();
+    if (!answered) {
+      break;
+    }
+  }
 }
 
 const play: commandInterface = {
