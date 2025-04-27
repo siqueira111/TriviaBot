@@ -17,18 +17,18 @@ export async function ReadFacts(facts: FactsType[]) {
 }
 
 export async function ReadMultipleChoices(questions: MultipleChoiceType[]) {
-  questions.map((question) => {
+  questions.map(async (question) => {
     const quest = new TriviaQuestions();
     quest.Type = QuestionEnum.MultipleChoice;
     quest.IsTrue = true;
     quest.Content = question.question;
-    createQuestionData(quest);
-    question.options.map((option) => {
+    await createQuestionData(quest);
+    question.options.map(async (option) => {
       const opt = new TriviaQuestionsOption();
       opt.Content = option;
       opt.IsCorrect = option === question.options[question.answer];
       opt.question = quest;
-      createOptionData(opt);
+      await createOptionData(opt);
     });
   });
 }

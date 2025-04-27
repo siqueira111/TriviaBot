@@ -8,8 +8,8 @@ import type { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 
 export interface questHandlerInterface {
   interaction: ButtonInteraction;
-  fact: TriviaQuestions;
-  options?: TriviaQuestionsOption;
+  fact: TriviaQuestions | null;
+  options?: TriviaQuestionsOption[] | null;
   EditLast: (content: string) => Promise<any>;
   Send?: (content: string) => Promise<any>;
   collector?: InteractionCollector<ButtonInteraction>;
@@ -17,9 +17,14 @@ export interface questHandlerInterface {
 
 export interface produceInterface {
   interaction: ChatInputCommandInteraction;
-  fact: TriviaQuestions;
-  options?: TriviaQuestionsOption;
+  fact: TriviaQuestions | null;
+  options?: TriviaQuestionsOption[] | null;
   EditLast: (content: string) => Promise<any>;
   Send?: (content: string) => Promise<any>;
   collector?: InteractionCollector<ButtonInteraction>;
+}
+
+export interface questionOptionsPair {
+  question: TriviaQuestions | null;
+  options: TriviaQuestionsOption[] | null;
 }

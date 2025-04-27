@@ -21,35 +21,51 @@ import {
 import { TriviaQuestionsOption } from "@/core/entities/TriviaQuestionsOption";
 import { TriviaQuestions } from "@/core/entities/TriviaQuestions";
 import { QuestionEnum } from "@/enums/enums";
-import type { produceInterface, questHandlerInterface } from "./types";
+import type {
+  produceInterface,
+  questHandlerInterface,
+  questionOptionsPair,
+} from "./types";
 import { AppDataSource } from "@/index";
 
 async function generateRandomSequence(maxQuestion = 25) {
-  function shuffleArray(array: TriviaQuestions[]) {
+  function shuffleArray(array: questionOptionsPair[]) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
 
-  // read all the questions, shuffle it by id, and then return the ids in an array
-
-  const booleanQuestions = await (await AppDataSource)
+  const facts = await (await AppDataSource)
     .getRepository(TriviaQuestions)
     .findBy({ Type: QuestionEnum.Boolean });
+  const booleanQuestions: questionOptionsPair[] = [
+    ...facts.map((fact) => ({
+      question: fact,
+      options: null,
+    })),
+  ];
 
-  shuffleArray(booleanQuestions);
+  const options = await (await AppDataSource)
+    .getRepository(TriviaQuestionsOption)
+    .find({ relations: { question: {} } });
+  console.log(options);
+  const multipleChoice = await (await AppDataSource)
+    .getRepository(TriviaQuestions)
+    .findBy({ Type: QuestionEnum.MultipleChoice });
+  const multipleChoiceQuestions: questionOptionsPair[] = await Promise.all([
+    ...multipleChoice.map(async (quest) => ({
+      question: quest,
+      options: options.filter((opt) => opt.question.Id === quest?.Id),
+    })),
+  ]);
 
-  /*
-export async function getPlayer(player: TriviaPlayer) {
-  const playerData = (await AppDataSource)
-    .getRepository(TriviaPlayer)
-    .findOneBy({ DiscordId: player.DiscordId });
-  return await playerData;
-}
-*/
+  const allQuestions = [...booleanQuestions, ...multipleChoiceQuestions];
+  // const allQuestions = [...multipleChoiceQuestions];
+  // const allQuestions = [...booleanQuestions];
+  shuffleArray(allQuestions);
 
-  return booleanQuestions;
+  return allQuestions;
 }
 
 async function questionHandler({
@@ -61,20 +77,34 @@ async function questionHandler({
 }: questHandlerInterface) {
   let response = true;
 
-  if (fact.Type === QuestionEnum.Boolean) {
-    response = (interaction.customId === "true") === fact.IsTrue;
-    await EditLast(response ? "Correct!" : "Incorrect! You suck!");
-  }
+  switch (fact?.Type) {
+    case QuestionEnum.Boolean:
+      response = (interaction.customId === "true") === fact.IsTrue;
+      await EditLast(response ? "Correct!" : "Incorrect! You suck!");
+      break;
 
-  if (fact.Type === QuestionEnum.MultipleChoice) {
+    case QuestionEnum.MultipleChoice:
+      if (!options) {
+        throw new Error("Options aren't loaded!");
+      }
+      response = options[parseInt(interaction.customId)].IsCorrect;
+      await EditLast(response ? "Correct!" : "Incorrect! You suck!");
+      break;
+
+    case QuestionEnum.CTF:
+      break;
   }
 
   collector?.stop();
   return response;
 }
 
-async function produceQuestion({ interaction, fact }: produceInterface) {
-  const comps = [
+async function produceQuestion(
+  { interaction, fact, options }: produceInterface,
+  questionCounter = 0
+) {
+  console.log({ options });
+  const booleanComponent = [
     new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("true")
@@ -87,17 +117,34 @@ async function produceQuestion({ interaction, fact }: produceInterface) {
     ),
   ];
 
+  const multipleChoiceComponent = [
+    new ActionRowBuilder().addComponents(
+      ...(options ?? []).map((option, index) =>
+        new ButtonBuilder()
+          .setCustomId(String(index))
+          .setStyle(ButtonStyle.Primary)
+          .setLabel(option.Content)
+      )
+    ),
+  ];
+
+  const components =
+    fact?.Type == QuestionEnum.Boolean
+      ? booleanComponent
+      : multipleChoiceComponent;
+
   interaction.editReply({
     embeds: [
       new EmbedBuilder()
         .setTitle("Play Game")
         .setDescription(
-          `No way this is true, right? you will not be able to answer it ;3\n\`${fact.Content}\``
+          `No way this is true, right? you will not be able to answer it ;3\n\n\`${fact?.Content}\``
         )
         .setColor("7ad1a1")
-        .setFooter({ text: `Question $ {questionCounter}` }),
+        .setFooter({ text: `Questions answered: ${questionCounter}` }),
     ],
-    components: comps,
+
+    components: components,
     flags: [MessageFlags.Ephemeral],
   });
 }
@@ -128,15 +175,11 @@ async function playExecute(
 
   await Send("Welcome to the game, Lets play!");
 
-  let Fact = new TriviaQuestions();
-
-  Fact.Content = "Do you know that flamm knows?";
-  Fact.IsTrue = true;
-  Fact.Type = QuestionEnum.Boolean;
-  Fact.event = null;
-
   const Questions = await generateRandomSequence();
 
+  console.log(`There are a total of ${Questions.length} questions!`);
+
+  let questionCounter = 0;
   for (const question of Questions) {
     console.log({ question });
 
@@ -146,19 +189,28 @@ async function playExecute(
       time: 15000,
     });
 
-    await produceQuestion({
-      interaction: interaction,
-      fact: question,
-      EditLast: EditLast,
-      collector: collector,
-      Send: Send,
-    });
+    await produceQuestion(
+      {
+        interaction: interaction,
+        fact: question.question,
+        options: question.options?.filter(
+          (opt) => opt.question.Id === question.question?.Id
+        ),
+        EditLast: EditLast,
+        collector: collector,
+        Send: Send,
+      },
+      questionCounter
+    );
 
     const answered = await new Promise((resolve) => {
       collector?.on("collect", async (userInteraction: ButtonInteraction) => {
         const correctAnswer = await questionHandler({
           interaction: userInteraction,
-          fact: question,
+          fact: question.question,
+          options: question.options?.filter(
+            (opt) => opt.question.Id === question.question?.Id
+          ),
           collector: collector,
           EditLast: EditLast,
         });
@@ -175,6 +227,7 @@ async function playExecute(
     if (!answered) {
       break;
     }
+    questionCounter++;
   }
 }
 

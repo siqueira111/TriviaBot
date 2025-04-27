@@ -45,8 +45,11 @@ async function initialize() {
     channelId: ds_channelId,
   });
 
-  // ReadFacts(facts);
-  // ReadMultipleChoices(multiple);
+  // await ReadFacts(facts);
+  // await ReadMultipleChoices(multiple);
+  // console.log(
+  //   `There is a total of ${facts.length} facts and ${multiple.length} multiple choice questions.`
+  // );
 
   await registerSlashCommand({
     client: { token: ds_token, clientId: ds_client, object: ds_conn },

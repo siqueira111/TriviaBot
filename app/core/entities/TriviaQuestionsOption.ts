@@ -3,18 +3,15 @@ import { TriviaQuestions } from "./TriviaQuestions";
 
 @Entity()
 export class TriviaQuestionsOption {
-	@PrimaryGeneratedColumn()
-	Id!: number;
+  @PrimaryGeneratedColumn()
+  Id!: number;
 
-	@ManyToOne(
-		() => TriviaQuestions,
-		(question) => question.Id,
-	)
-	question!: TriviaQuestions;
+  @ManyToOne(() => TriviaQuestions, (question) => question.Id)
+  question!: TriviaQuestions;
 
-	@Column()
-	Content!: string;
+  @Column()
+  Content!: string;
 
-	@Column()
-	IsCorrect!: boolean;
+  @Column()
+  IsCorrect!: boolean;
 }
